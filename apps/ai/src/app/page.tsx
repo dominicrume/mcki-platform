@@ -3,35 +3,49 @@
  * Renders content/ai/index.md + content/proof/*.md case studies.
  */
 import { readDoc, listDocs } from "@mcki/content";
+import { Section, Card } from "@mcki/ui";
 
 export default function AiHome() {
   const doc = readDoc("ai", "index");
   const d = (doc?.data ?? {}) as any;
   const proof = listDocs("proof");
+  const builds = d.builds ?? [];
+
   return (
-    <main style={{ maxWidth: 1000, margin: "0 auto", padding: "96px 24px" }}>
-      <p style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, letterSpacing: 2, textTransform: "uppercase", color: "#5B3FD9" }}>
-        MCKI · AI &amp; Agents
-      </p>
-      <h1 style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(32px,5vw,56px)", fontWeight: 800, color: "#111318", margin: "12px 0 16px" }}>
-        {d.tagline ?? "We build the AI agents that run your business."}
-      </h1>
-      <p style={{ fontSize: 18, color: "#555B68", maxWidth: 620, lineHeight: 1.7, marginBottom: 32 }}>
-        {d.hero_sub ?? ""}
-      </p>
-      <h2 style={{ fontFamily: "'Syne',sans-serif", fontSize: 24, fontWeight: 700, marginBottom: 16 }}>The Proof</h2>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
-        {proof.map((p) => {
-          const pd = p.data as any;
-          return (
-            <div key={p.slug} style={{ padding: 20, border: "1px solid #E4E6EB", borderRadius: 12 }}>
-              <div style={{ fontWeight: 700, color: "#111318" }}>{pd.client}</div>
-              <div style={{ fontSize: 13, color: "#555B68", marginTop: 4 }}>{pd.build}</div>
-            </div>
-          );
-        })}
-      </div>
-      {/* AGENT: build full services, courses (£600/£799/£999), case study pages */}
+    <main>
+      <Section className="pt-24 pb-16">
+        <p className="font-mono text-[12px] tracking-widest uppercase text-ai mb-3">
+          MCKI · AI &amp; Agents
+        </p>
+        <h1 className="font-extrabold text-[clamp(32px,5vw,56px)] leading-tight text-ink mb-4">
+          {d.tagline ?? "We build the AI agents that run your business."}
+        </h1>
+        <p className="text-[18px] text-mid max-w-[620px] leading-relaxed mb-12">
+          {d.hero_sub ?? ""}
+        </p>
+
+        <h2 className="font-extrabold text-2xl text-ink mb-6">Our Builds & Training</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+          {builds.map((b: any, i: number) => (
+            <Card key={i} title={b.title} tagline={b.desc} accentClass="bg-ai" />
+          ))}
+        </div>
+        <div className="mb-16">
+          <a href="/courses" className="inline-block px-6 py-3 rounded-xl bg-ai text-white font-semibold transition-transform hover:-translate-y-0.5">
+            View Training Courses →
+          </a>
+        </div>
+
+        <h2 className="font-extrabold text-2xl text-ink mb-6">The Proof</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {proof.map((p) => {
+            const pd = p.data as any;
+            return (
+              <Card key={p.slug} title={pd.client} tagline={pd.build} href={`/proof/${p.slug}`} cta="Read Case Study →" />
+            );
+          })}
+        </div>
+      </Section>
     </main>
   );
 }

@@ -1,7 +1,11 @@
 import "../styles/globals.css";
 export const metadata = { title: "MCKI · ai" };
+import { Nav } from "@mcki/ui";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (<html lang="en"><head>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  </head><body>{children}</body></html>);
+  </head><body className="bg-white text-ink font-sans">
+    <Nav currentApp="ai" />
+    {children}
+  </body></html>);
 }

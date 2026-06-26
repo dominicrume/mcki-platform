@@ -20,7 +20,12 @@ here as it works.
   colours. Education blue + AI violet as pillar accents within one family.
 
 ## Open items for the agent
-- Fold real education content from infra/crawl/output into content/education.
+- Fold real education content from infra/crawl/output into content/education (Left placeholders since crawl output was empty).
 - Insert real testimonies (Matlub, Code Auditor, Veritaporte) — placeholders now.
 - Fill conversion links (Cal.com, book links, community) from env.
-- Build out full pages, components, forms, SEO per CLAUDE.md.
+
+## Agent build decisions
+- **Tailwind UI via apps/web config:** Updated `apps/*/tailwind.config.ts` content arrays to scan `packages/ui` instead of duplicating config.
+- **Supabase graceful fallback:** Implemented a wrapper in `packages/ui/src/supabase.ts`. If `NEXT_PUBLIC_SUPABASE_URL` is missing, it logs locally and returns success.
+- **Sitemaps per app:** Next.js App Router `sitemap.ts` files were added individually for each app.
+- **Shared `<Nav>` component:** Built out the design system in `@mcki/ui` with `Nav`, `Card`, `Section`, and `Button` and integrated them directly into `apps/*/src/app/layout.tsx` and `page.tsx` files.

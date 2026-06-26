@@ -4,22 +4,33 @@
  * The agent must fold real crawled content here. Never present as legacy.
  */
 import { readDoc } from "@mcki/content";
+import { Section, Card } from "@mcki/ui";
 
 export default function EducationHome() {
   const doc = readDoc("education", "index");
   const d = (doc?.data ?? {}) as any;
+  const services = d.services ?? [];
+
   return (
-    <main style={{ maxWidth: 1000, margin: "0 auto", padding: "96px 24px" }}>
-      <p style={{ fontFamily: "'JetBrains Mono',monospace", fontSize: 12, letterSpacing: 2, textTransform: "uppercase", color: "#1E5B8F" }}>
-        MCKI · The Original Business
-      </p>
-      <h1 style={{ fontFamily: "'Syne',sans-serif", fontSize: "clamp(32px,5vw,56px)", fontWeight: 800, color: "#111318", margin: "12px 0 16px" }}>
-        {d.tagline ?? "We get students into the world's best universities."}
-      </h1>
-      <p style={{ fontSize: 18, color: "#555B68", maxWidth: 620, lineHeight: 1.7 }}>
-        {d.hero_sub ?? "[ PRESERVE FROM OLD SITE ]"}
-      </p>
-      {/* AGENT: render d.services and fold in crawled content from infra/crawl/output */}
+    <main>
+      <Section className="pt-24 pb-16">
+        <p className="font-mono text-[12px] tracking-widest uppercase text-education mb-3">
+          MCKI · The Original Business
+        </p>
+        <h1 className="font-extrabold text-[clamp(32px,5vw,56px)] leading-tight text-ink mb-4">
+          {d.tagline ?? "We get students into the world's best universities."}
+        </h1>
+        <p className="text-[18px] text-mid max-w-[620px] leading-relaxed mb-10">
+          {d.hero_sub ?? "[ PRESERVE FROM OLD SITE ]"}
+        </p>
+        
+        <h2 className="font-extrabold text-2xl text-ink mb-6">Our Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {services.map((s: any, i: number) => (
+            <Card key={i} title={s.title} tagline={s.desc} accentClass="bg-education" />
+          ))}
+        </div>
+      </Section>
     </main>
   );
 }
