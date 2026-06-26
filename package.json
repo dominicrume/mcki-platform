@@ -1,0 +1,17 @@
+{
+  "name": "mcki-platform",
+  "private": true,
+  "version": "1.0.0",
+  "description": "MCKI Solutions — one brand, two pillars (Education + AI), a timeless event engine.",
+  "packageManager": "pnpm@9.0.0",
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "crawl": "node infra/crawl/firecrawl-old-site.mjs"
+  },
+  "devDependencies": {
+    "turbo": "^2.0.0",
+    "typescript": "^5.4.0"
+  }
+}

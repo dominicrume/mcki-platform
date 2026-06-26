@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root { --education:#1E5B8F; --ai:#5B3FD9; }
+html { scroll-behavior:smooth; }
+body { font-family:'Inter',system-ui,sans-serif; color:#111318; }
+.display { font-family:'Syne',system-ui,sans-serif; }
