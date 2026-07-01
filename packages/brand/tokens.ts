@@ -6,14 +6,14 @@
  */
 export const colors = {
   // Core brand
-  ink:      "#111318",   // near-black, primary text
+  ink:      "#0A192F",   // deep navy black, primary text
   paper:    "#FFFFFF",
-  // Pillar accents (distinct so Education vs AI read clearly, same family)
-  education:"#1E5B8F",   // trusted blue — admissions, academia
-  ai:       "#5B3FD9",   // electric violet — the AI division
+  // Pillar accents
+  education:"#002D62",   // classic MCKI Navy
+  ai:       "#FFD700",   // premium MCKI Gold
   // Shared signal colours
   lime:     "#6B8E00",   // success / proof / promise
-  amber:    "#FFAD33",   // attention / live
+  amber:    "#F59E0B",   // attention / live
   // Neutrals
   mid:      "#555B68",
   line:     "#E4E6EB",

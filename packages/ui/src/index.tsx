@@ -7,7 +7,8 @@ import React from "react";
 import { colors, brand } from "@mcki/brand/tokens";
 
 export function Button({ children, href, accent = "bg-ai", className = "" }: { children: React.ReactNode; href?: string; accent?: string; className?: string }) {
-  const baseClasses = `inline-block px-6 py-3 rounded-xl text-white font-semibold no-underline transition-transform hover:-translate-y-0.5 ${accent} ${className}`;
+  const textColor = accent.includes("ai") || accent.includes("amber") ? "text-ink" : "text-white";
+  const baseClasses = `inline-block px-6 py-3 rounded-xl ${textColor} font-bold no-underline transition-transform hover:-translate-y-0.5 shadow-sm hover:shadow-md ${accent} ${className}`;
   return href ? <a href={href} className={baseClasses}>{children}</a> : <button className={baseClasses}>{children}</button>;
 }
 

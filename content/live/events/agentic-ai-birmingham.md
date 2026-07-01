@@ -36,9 +36,9 @@ modules:
       books:
         - { title: Wealth of the Blockchain, link: "[BOOK_LINK_WEALTH_BLOCKCHAIN]" }
         - { title: An Evolution into the Metaverse, link: "[BOOK_LINK_METAVERSE]" }
-      course: { label: "See the course", link: "/ai#courses" }
+      course: { label: "Learn for free on Voerm.co", link: "https://voerm.co" }
       booking: { label: "Book a free discovery call", link: "[CALCOM_BOOKING_URL]" }
-      community: { label: "Join the community", link: "[COMMUNITY_INVITE_URL]" }
+      community: { label: "Join the MCKI WhatsApp Community", link: "https://chat.whatsapp.com/[YOUR_INVITE_CODE]" }
 ---
 
 # Agentic AI Birmingham

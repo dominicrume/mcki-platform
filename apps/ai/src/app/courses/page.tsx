@@ -18,6 +18,13 @@ export default function CoursesPage() {
           {d.hero?.subtitle}
         </p>
 
+        {d.partner && (
+          <div className="bg-ai/10 border border-ai/20 p-8 rounded-2xl mb-12 text-center">
+            <h2 className="font-extrabold text-2xl text-ink mb-2">{d.partner.title}</h2>
+            <p className="text-mid text-[16px] max-w-[500px] mx-auto">{d.partner.subtitle}</p>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16">
           {(d.courses ?? []).map((c: any, i: number) => (
             <Card 
@@ -26,6 +33,8 @@ export default function CoursesPage() {
               tagline={c.tagline} 
               kicker={c.kicker}
               accentClass={c.accentClass}
+              href={c.link}
+              cta={c.cta}
             />
           ))}
         </div>

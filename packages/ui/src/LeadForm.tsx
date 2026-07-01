@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { submitData } from "./supabase";
+import { captureLead } from "./actions";
 
 export function LeadForm({ formId, accentClass = "bg-ai" }: { formId: string; accentClass?: string }) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
@@ -11,7 +11,7 @@ export function LeadForm({ formId, accentClass = "bg-ai" }: { formId: string; ac
     e.preventDefault();
     if (!email) return;
     setStatus("submitting");
-    await submitData("leads", { form_id: formId, email });
+    await captureLead(formId, email);
     setStatus("success");
     setEmail("");
   };

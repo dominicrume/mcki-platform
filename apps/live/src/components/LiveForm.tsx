@@ -33,7 +33,7 @@ export function LiveForm({ actionName, label, accentClass }: { actionName: strin
       <button 
         type="submit" 
         disabled={status === "submitting"}
-        className={`px-4 py-2 rounded-xl text-white font-semibold text-[14px] transition-transform hover:-translate-y-0.5 disabled:opacity-50 ${accentClass}`}
+        className={`px-4 py-2 rounded-xl ${(accentClass.includes("ai") || accentClass.includes("amber")) ? "text-ink" : "text-white"} font-bold text-[14px] shadow-sm hover:shadow-md transition-transform hover:-translate-y-0.5 disabled:opacity-50 ${accentClass}`}
       >
         {status === "submitting" ? "..." : "Submit"}
       </button>
