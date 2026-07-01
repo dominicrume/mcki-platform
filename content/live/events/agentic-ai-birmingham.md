@@ -4,7 +4,7 @@ title: Agentic AI Birmingham
 date: 2026-06-27
 time: "1:00 PM – 4:00 PM"
 venue: Ravenhurst Street, Digbeth, Birmingham
-status: live
+status: completed
 promise:
   - { label: Cheaper, value: 5x }
   - { label: Faster, value: 7x }
