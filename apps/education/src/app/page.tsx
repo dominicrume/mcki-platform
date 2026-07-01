@@ -25,11 +25,13 @@ export default function EducationHome() {
         </p>
         
         <h2 className="font-extrabold text-2xl text-ink mb-6">Our Services</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
           {services.map((s: any, i: number) => (
             <Card key={i} title={s.title} tagline={s.desc} accentClass="bg-education" />
           ))}
         </div>
+
+        <div className="prose prose-lg max-w-[800px] prose-headings:font-extrabold prose-headings:text-ink prose-p:text-mid prose-p:leading-relaxed prose-li:text-mid prose-blockquote:border-l-education prose-blockquote:text-ink prose-blockquote:italic" dangerouslySetInnerHTML={{ __html: doc?.body ?? "" }} />
       </Section>
     </main>
   );
