@@ -14,6 +14,15 @@ export default function LiveHub() {
   const d = (event?.data ?? {}) as any;
   const m = d.modules ?? {};
 
+  const resolveLink = (link: string) => {
+    if (!link) return "#";
+    if (link === "[CALCOM_BOOKING_URL]") return process.env.NEXT_PUBLIC_CALCOM_BOOKING_URL || "#";
+    if (link.includes("[YOUR_INVITE_CODE]")) return link.replace("[YOUR_INVITE_CODE]", process.env.NEXT_PUBLIC_YOUR_INVITE_CODE || "");
+    if (link === "[BOOK_LINK_WEALTH_BLOCKCHAIN]") return process.env.NEXT_PUBLIC_BOOK_LINK_WEALTH_BLOCKCHAIN || "#";
+    if (link === "[BOOK_LINK_METAVERSE]") return process.env.NEXT_PUBLIC_BOOK_LINK_METAVERSE || "#";
+    return link;
+  };
+
   return (
     <main className="max-w-[640px] mx-auto px-5 py-8 min-h-screen">
       {/* HEADER */}
@@ -43,18 +52,18 @@ export default function LiveHub() {
       {m.start_here?.enabled && (
         <section className="mt-8 p-5 rounded-2xl bg-bgSoft">
           <h2 className="font-extrabold text-xl mb-4">Start Here</h2>
-          <Button href={m.start_here.actions?.booking?.link} accent="bg-ai" className="block text-center w-full mb-2">
+          <Button href={resolveLink(m.start_here.actions?.booking?.link)} accent="bg-ai" className="block text-center w-full mb-2">
             📅 {m.start_here.actions?.booking?.label}
           </Button>
-          <a href={m.start_here.actions?.course?.link} className="block text-center w-full p-3 mb-2 bg-white text-ink border border-line rounded-xl font-medium hover:-translate-y-0.5 transition-transform">
+          <a href={resolveLink(m.start_here.actions?.course?.link)} className="block text-center w-full p-3 mb-2 bg-white text-ink border border-line rounded-xl font-medium hover:-translate-y-0.5 transition-transform">
             🎓 {m.start_here.actions?.course?.label}
           </a>
           {(m.start_here.actions?.books ?? []).map((b: any) => (
-            <a key={b.title} href={b.link} className="block text-center w-full p-3 mb-2 bg-white text-ink border border-line rounded-xl font-medium hover:-translate-y-0.5 transition-transform">
+            <a key={b.title} href={resolveLink(b.link)} className="block text-center w-full p-3 mb-2 bg-white text-ink border border-line rounded-xl font-medium hover:-translate-y-0.5 transition-transform">
               📘 {b.title}
             </a>
           ))}
-          <a href={m.start_here.actions?.community?.link} className="block text-center w-full p-3 bg-white text-ink border border-line rounded-xl font-medium hover:-translate-y-0.5 transition-transform">
+          <a href={resolveLink(m.start_here.actions?.community?.link)} className="block text-center w-full p-3 bg-white text-ink border border-line rounded-xl font-medium hover:-translate-y-0.5 transition-transform">
             💬 {m.start_here.actions?.community?.label}
           </a>
         </section>
