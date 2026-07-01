@@ -19,10 +19,10 @@ here as it works.
 - **Brand tokens reused, not rebranded** — "more stable, more robust", same
   colours. Education blue + AI violet as pillar accents within one family.
 
-## Open items for the agent
-- Fold real education content from infra/crawl/output into content/education (Left placeholders since crawl output was empty).
-- Insert real testimonies (Matlub, Code Auditor, Veritaporte) — placeholders now.
-- Fill conversion links (Cal.com, book links, community) from env.
+## Open items for the user (Post-Build)
+- Provide real education copy via the crawl job, or manually replace the placeholders in `content/education/*.md`.
+- (Optional) Provide actual client quotes to replace the professional placeholders in `content/proof/*.md`.
+- Set the Vercel environment variables (`NEXT_PUBLIC_CALCOM_BOOKING_URL`, `NEXT_PUBLIC_YOUR_INVITE_CODE`, etc.) for the conversion links to activate.
 
 ## Agent build decisions
 - **Tailwind UI via apps/web config:** Updated `apps/*/tailwind.config.ts` content arrays to scan `packages/ui` instead of duplicating config.
