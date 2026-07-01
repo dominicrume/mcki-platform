@@ -2,10 +2,14 @@
  * Parent brand homepage — mckisolutions.com
  * Two doors of equal dignity: Education (the original business) and AI.
  */
+import { readDoc } from "@mcki/content";
 import { brand, promise } from "@mcki/brand/tokens";
 import { Section, Card } from "@mcki/ui";
 
 export default function Home() {
+  const doc = readDoc("web", "home");
+  const d = (doc?.data ?? {}) as any;
+
   return (
     <main>
       {/* HERO */}
@@ -13,13 +17,9 @@ export default function Home() {
         <p className="font-mono text-[12px] tracking-widest uppercase text-mid mb-4">
           {brand.name} · Birmingham
         </p>
-        <h1 className="font-extrabold text-[clamp(34px,6vw,64px)] leading-[1.02] text-ink mb-5">
-          One company.<br />Two ways we change your future.
-        </h1>
+        <h1 className="font-extrabold text-[clamp(34px,6vw,64px)] leading-[1.02] text-ink mb-5" dangerouslySetInnerHTML={{ __html: d.hero?.title || "" }} />
         <p className="text-[18px] text-mid max-w-[620px] leading-relaxed">
-          MCKI started in education — getting students into the world&apos;s best
-          universities. From that foundation we built an AI division that
-          builds the agents running modern businesses. Choose your door.
+          {d.hero?.subtitle}
         </p>
       </Section>
 
@@ -56,7 +56,7 @@ export default function Home() {
           ))}
         </div>
         <p className="text-center mt-6 text-mid text-[14px]">
-          The promise of the AI division — what agentic AI delivers.
+          {d.promise?.note}
         </p>
       </section>
 

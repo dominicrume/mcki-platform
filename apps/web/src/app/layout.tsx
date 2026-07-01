@@ -4,6 +4,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "MCKI Solutions — Education & AI",
   description: "One brand, two pillars: Education consultancy and AI agent builds. We get students into top universities and build the AI agents that run your business.",
+  openGraph: {
+    title: "MCKI Solutions",
+    description: "Education consultancy and AI agent builds.",
+    type: "website",
+  },
 };
 
 import { Nav } from "@mcki/ui";

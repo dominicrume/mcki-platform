@@ -29,3 +29,5 @@ here as it works.
 - **Supabase graceful fallback:** Implemented a wrapper in `packages/ui/src/supabase.ts`. If `NEXT_PUBLIC_SUPABASE_URL` is missing, it logs locally and returns success.
 - **Sitemaps per app:** Next.js App Router `sitemap.ts` files were added individually for each app.
 - **Shared `<Nav>` component:** Built out the design system in `@mcki/ui` with `Nav`, `Card`, `Section`, and `Button` and integrated them directly into `apps/*/src/app/layout.tsx` and `page.tsx` files.
+- **Content Engine strictness:** Extracted all remaining hardcoded copy from `apps/web/src/app/page.tsx` and `apps/ai/src/app/courses/page.tsx` into `content/web/home.md` and `content/ai/courses.md` to ensure a single source of truth across all apps.
+- **Lighthouse / SEO pass:** Expanded the `metadata` configuration in `layout.tsx` for all 4 apps, providing full OpenGraph properties and descriptions to satisfy Lighthouse 90+ criteria.
