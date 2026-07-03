@@ -8,20 +8,20 @@ export default function CoursesPage() {
   return (
     <main>
       <Section className="pt-24 pb-16">
-        <p className="font-mono text-[12px] tracking-widest uppercase text-ai mb-3">
+        <p className="font-mono text-[12px] tracking-widest uppercase text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)] mb-3">
           MCKI · AI &amp; Agents
         </p>
-        <h1 className="font-extrabold text-[clamp(32px,5vw,56px)] leading-tight text-ink mb-4">
+        <h1 className="font-extrabold text-[clamp(32px,5vw,56px)] leading-tight text-white mb-4">
           {d.hero?.title}
         </h1>
-        <p className="text-[18px] text-mid max-w-[620px] leading-relaxed mb-12">
+        <p className="text-[18px] text-white/70 max-w-[620px] leading-relaxed mb-12">
           {d.hero?.subtitle}
         </p>
 
         {d.partner && (
-          <div className="bg-ai/10 border border-ai/20 p-8 rounded-2xl mb-12 text-center">
-            <h2 className="font-extrabold text-2xl text-ink mb-2">{d.partner.title}</h2>
-            <p className="text-mid text-[16px] max-w-[500px] mx-auto">{d.partner.subtitle}</p>
+          <div className="bg-ai/10 border border-ai/30 p-8 rounded-2xl mb-12 text-center">
+            <h2 className="font-extrabold text-2xl text-white mb-2">{d.partner.title}</h2>
+            <p className="text-white/70 text-[16px] max-w-[500px] mx-auto">{d.partner.subtitle}</p>
           </div>
         )}
 
@@ -39,9 +39,9 @@ export default function CoursesPage() {
           ))}
         </div>
 
-        <div className="bg-bgSoft p-8 rounded-2xl max-w-[600px] mx-auto text-center border border-line">
-          <h2 className="font-extrabold text-2xl text-ink mb-3">{d.waitlist?.title}</h2>
-          <p className="text-mid mb-6 text-[15px]">{d.waitlist?.subtitle}</p>
+        <div className="bg-white/5 p-8 rounded-2xl max-w-[600px] mx-auto text-center border border-white/10">
+          <h2 className="font-extrabold text-2xl text-white mb-3">{d.waitlist?.title}</h2>
+          <p className="text-white/70 mb-6 text-[15px]">{d.waitlist?.subtitle}</p>
           <LeadForm formId="course-waitlist" accentClass="bg-ai" />
         </div>
       </Section>
