@@ -27,13 +27,13 @@ export function LeadForm({ formId, accentClass = "bg-ai" }: { formId: string; ac
         placeholder="Enter your email" 
         value={email}
         onChange={e => setEmail(e.target.value)}
-        className="flex-1 px-4 py-3 rounded-xl border border-line outline-none focus:border-mid bg-white text-ink"
+        className="flex-1 px-4 py-3 rounded-xl border border-white/20 outline-none focus:border-ai bg-white/10 text-white placeholder:text-white/50"
         required
       />
       <button 
         type="submit" 
         disabled={status === "submitting"}
-        className={`px-6 py-3 rounded-xl text-white font-semibold transition-transform hover:-translate-y-0.5 disabled:opacity-50 ${accentClass}`}
+        className={`px-6 py-3 rounded-xl ${accentClass === 'bg-ai' ? 'text-ink' : 'text-white'} font-bold transition-transform hover:-translate-y-0.5 disabled:opacity-50 ${accentClass}`}
       >
         {status === "submitting" ? "..." : "Submit"}
       </button>

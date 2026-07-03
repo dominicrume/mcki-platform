@@ -27,7 +27,7 @@ export function LiveForm({ actionName, label, accentClass }: { actionName: strin
         placeholder={label} 
         value={value}
         onChange={e => setValue(e.target.value)}
-        className="flex-1 px-4 py-2 rounded-xl border border-line outline-none focus:border-mid bg-white text-ink text-[14px]"
+        className="flex-1 px-4 py-2 rounded-xl border border-white/20 outline-none focus:border-ai bg-white/10 text-white placeholder:text-white/50 text-[14px]"
         required
       />
       <button 

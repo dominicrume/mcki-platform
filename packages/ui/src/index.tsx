@@ -20,13 +20,13 @@ export function Card({ children, accentClass, kicker, title, tagline, href, cta 
   const inner = (
     <>
       {kicker && <p className={`font-mono text-[10px] tracking-widest uppercase mb-2 ${accentClass ? `text-${accentClass.replace('bg-', '')}` : ''}`}>{kicker}</p>}
-      {title && <h2 className="text-3xl font-extrabold text-ink mb-2">{title}</h2>}
-      {tagline && <p className="text-[15px] text-mid leading-relaxed mb-5">{tagline}</p>}
+      {title && <h2 className="text-3xl font-extrabold text-white mb-2">{title}</h2>}
+      {tagline && <p className="text-[15px] text-white/70 leading-relaxed mb-5">{tagline}</p>}
       {cta && <span className={`text-[14px] font-semibold ${accentClass ? `text-${accentClass.replace('bg-', '')}` : ''}`}>{cta}</span>}
       {children}
     </>
   );
-  const classes = `block p-7 rounded-2xl border border-line bg-white transition-transform hover:-translate-y-1 ${accentClass ? `border-t-4 border-t-${accentClass.replace('bg-', '')}` : ''}`;
+  const classes = `block p-7 rounded-2xl border border-white/10 bg-white/5 transition-transform hover:-translate-y-1 ${accentClass ? `border-t-4 border-t-${accentClass.replace('bg-', '')}` : ''}`;
   return href ? <a href={href} className={classes}>{inner}</a> : <div className={classes}>{inner}</div>;
 }
 
@@ -37,12 +37,12 @@ export function Nav({ currentApp = "web" }: { currentApp?: "web" | "education" |
   const liveUrl = process.env.NEXT_PUBLIC_LIVE_URL || "https://live.mckisolutions.com";
 
   return (
-    <nav className="border-b border-line px-6 py-4 flex justify-between items-center max-w-[1000px] mx-auto">
-      <a href={webUrl} className="font-extrabold text-xl tracking-tight text-ink no-underline">MCKI</a>
+    <nav className="border-b border-white/10 px-6 py-4 flex justify-between items-center max-w-[1000px] mx-auto">
+      <a href={webUrl} className="font-extrabold text-xl tracking-tight text-white no-underline">MCKI</a>
       <div className="flex gap-6 text-[14px] font-medium">
-        <a href={educationUrl} className={`no-underline ${currentApp === 'education' ? 'text-education' : 'text-mid hover:text-ink'}`}>Education</a>
-        <a href={aiUrl} className={`no-underline ${currentApp === 'ai' ? 'text-ai' : 'text-mid hover:text-ink'}`}>AI & Agents</a>
-        <a href={liveUrl} className={`no-underline ${currentApp === 'live' ? 'text-amber' : 'text-mid hover:text-ink'}`}>Live</a>
+        <a href={educationUrl} className={`no-underline ${currentApp === 'education' ? 'text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)]' : 'text-white/70 hover:text-white'}`}>Education</a>
+        <a href={aiUrl} className={`no-underline ${currentApp === 'ai' ? 'text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)]' : 'text-white/70 hover:text-white'}`}>AI & Agents</a>
+        <a href={liveUrl} className={`no-underline ${currentApp === 'live' ? 'text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)]' : 'text-white/70 hover:text-white'}`}>Live</a>
       </div>
     </nav>
   );

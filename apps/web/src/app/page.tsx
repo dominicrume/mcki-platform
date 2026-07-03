@@ -14,11 +14,11 @@ export default function Home() {
     <main>
       {/* HERO */}
       <Section className="pt-24 pb-16">
-        <p className="font-mono text-[12px] tracking-widest uppercase text-mid mb-4">
+        <p className="font-mono text-[12px] tracking-widest uppercase text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)] mb-4">
           {brand.name} · Birmingham
         </p>
-        <h1 className="font-extrabold text-[clamp(34px,6vw,64px)] leading-[1.02] text-ink mb-5" dangerouslySetInnerHTML={{ __html: d.hero?.title || "" }} />
-        <p className="text-[18px] text-mid max-w-[620px] leading-relaxed">
+        <h1 className="font-extrabold text-[clamp(34px,6vw,64px)] leading-[1.02] text-white mb-5" dangerouslySetInnerHTML={{ __html: d.hero?.title || "" }} />
+        <p className="text-[18px] text-white/70 max-w-[620px] leading-relaxed">
           {d.hero?.subtitle}
         </p>
       </Section>
@@ -46,21 +46,21 @@ export default function Home() {
       </Section>
 
       {/* PROMISE */}
-      <section className="bg-bgSoft py-14 px-6">
+      <section className="bg-white/5 py-14 px-6 border-y border-white/10">
         <div className="max-w-[1000px] mx-auto flex gap-10 flex-wrap justify-center">
           {promise.map((p) => (
             <div key={p.label} className="text-center">
               <div className="font-extrabold text-4xl text-ai mb-1">{p.value}</div>
-              <div className="text-[13px] tracking-widest uppercase text-mid">{p.label}</div>
+              <div className="text-[13px] tracking-widest uppercase text-white/70">{p.label}</div>
             </div>
           ))}
         </div>
-        <p className="text-center mt-6 text-mid text-[14px]">
+        <p className="text-center mt-6 text-white/70 text-[14px]">
           {d.promise?.note}
         </p>
       </section>
 
-      <footer className="py-10 px-6 text-center text-mid text-[13px] border-t border-line">
+      <footer className="py-10 px-6 text-center text-white/50 text-[13px]">
         {brand.name} · {brand.address} · {brand.email}
       </footer>
     </main>
