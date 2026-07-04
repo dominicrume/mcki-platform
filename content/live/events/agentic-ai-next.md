@@ -1,7 +1,7 @@
 ---
-slug: agentic-ai-next
-title: Agentic AI — Live Experience
-date: 2026-08-01
+slug: agentic-ai-october
+title: Agentic AI — The Year-End Experience
+date: 2026-10-11
 time: "1:00 PM – 4:00 PM"
 venue: Birmingham · Venue TBC
 status: live
@@ -42,9 +42,10 @@ modules:
       community: { label: "Join the MCKI WhatsApp Community", link: "https://chat.whatsapp.com/[YOUR_INVITE_CODE]" }
 ---
 
-# Agentic AI — Live Experience
+# Agentic AI — Closing Out the Year
 
-The live MCKI AI experience. Watch agents get built in real time,
-around a real business chosen from the audience.
+Following our massive successes this year — from our foundational event on **February 28th**, our feature at **Frontier Tech X at Birmingham City University on March 27th**, and our blockbuster Birmingham event on **June 27th** — we are closing out the year on **October 11th** with our biggest live experience yet.
 
-This is not a pitch deck. This is a live build.
+The feedback has been nothing short of awesome. Now, it's time to build the agents that will run your business into the new year.
+
+This is not a pitch deck. Watch agents get built in real time, around a real business chosen from the audience.

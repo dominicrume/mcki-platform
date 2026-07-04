@@ -30,19 +30,39 @@ export function Card({ children, accentClass, kicker, title, tagline, href, cta 
   return href ? <a href={href} className={classes}>{inner}</a> : <div className={classes}>{inner}</div>;
 }
 
-export function Nav({ currentApp = "web" }: { currentApp?: "web" | "education" | "ai" | "live" }) {
+export function ProgressBar({ progress, label, total }: { progress: number; total: number; label: string }) {
+  const percentage = Math.min(100, Math.max(0, (progress / total) * 100));
+  return (
+    <div className="w-full">
+      <div className="flex justify-between items-end mb-2">
+        <span className="text-[14px] font-semibold text-white/90">{label}</span>
+        <span className="text-[12px] font-mono text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)]">{progress} / {total}</span>
+      </div>
+      <div className="w-full bg-white/10 rounded-full h-3 overflow-hidden">
+        <div 
+          className="bg-ai h-3 rounded-full transition-all duration-1000 ease-out" 
+          style={{ width: `${percentage}%`, boxShadow: "0 0 10px rgba(255,215,0,0.5)" }}
+        />
+      </div>
+    </div>
+  );
+}
+
+export function Nav({ currentApp = "web" }: { currentApp?: "web" | "education" | "ai" | "live" | "partners" }) {
   const webUrl = process.env.NEXT_PUBLIC_WEB_URL || "https://mckisolutions.com";
   const educationUrl = process.env.NEXT_PUBLIC_EDUCATION_URL || "https://education.mckisolutions.com";
   const aiUrl = process.env.NEXT_PUBLIC_AI_URL || "https://ai.mckisolutions.com";
   const liveUrl = process.env.NEXT_PUBLIC_LIVE_URL || "https://live.mckisolutions.com";
+  const partnersUrl = process.env.NEXT_PUBLIC_PARTNERS_URL || "https://partners.mckisolutions.com";
 
   return (
-    <nav className="border-b border-white/10 px-6 py-4 flex justify-between items-center max-w-[1000px] mx-auto">
-      <a href={webUrl} className="font-extrabold text-xl tracking-tight text-white no-underline">MCKI</a>
-      <div className="flex gap-6 text-[14px] font-medium">
-        <a href={educationUrl} className={`no-underline ${currentApp === 'education' ? 'text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)]' : 'text-white/70 hover:text-white'}`}>Education</a>
-        <a href={aiUrl} className={`no-underline ${currentApp === 'ai' ? 'text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)]' : 'text-white/70 hover:text-white'}`}>AI & Agents</a>
-        <a href={liveUrl} className={`no-underline ${currentApp === 'live' ? 'text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)]' : 'text-white/70 hover:text-white'}`}>Live</a>
+    <nav className="border-b border-white/10 px-6 py-4 flex justify-between items-center max-w-[1000px] mx-auto overflow-x-auto whitespace-nowrap">
+      <a href={webUrl} className="font-extrabold text-xl tracking-tight text-white no-underline mr-8">MCKI</a>
+      <div className="flex gap-6 text-[14px] font-medium items-center">
+        <a href={educationUrl} className={`no-underline transition-colors ${currentApp === 'education' ? 'text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)]' : 'text-white/70 hover:text-white'}`}>Education</a>
+        <a href={aiUrl} className={`no-underline transition-colors ${currentApp === 'ai' ? 'text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)]' : 'text-white/70 hover:text-white'}`}>AI & Agents</a>
+        <a href={liveUrl} className={`no-underline transition-colors ${currentApp === 'live' ? 'text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)]' : 'text-white/70 hover:text-white'}`}>Live</a>
+        <a href={partnersUrl} className={`no-underline transition-colors px-3 py-1.5 rounded-full ${currentApp === 'partners' ? 'bg-ai text-ink font-bold' : 'border border-ai text-ai hover:bg-ai/10'}`}>Partners</a>
       </div>
     </nav>
   );
@@ -50,4 +70,5 @@ export function Nav({ currentApp = "web" }: { currentApp?: "web" | "education" |
 
 export { LeadForm } from "./LeadForm";
 export { submitData, supabase } from "./supabase";
+export * as emailService from "./email";
 

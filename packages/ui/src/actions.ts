@@ -43,5 +43,13 @@ export async function captureLead(formId: string, email: string) {
     console.error("[Brevo Error]", error);
   }
 
+  // 3. Trigger Onboarding Email Pipeline
+  try {
+    const emailService = await import("./email");
+    await emailService.sendWelcomeEmail({ name: "Future Agent", email });
+  } catch (err) {
+    console.error("[Email Pipeline Error] Failed to send welcome email:", err);
+  }
+
   return { success: true };
 }
