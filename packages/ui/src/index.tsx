@@ -6,14 +6,16 @@
 import React from "react";
 import { colors, brand } from "@mcki/brand/tokens";
 
-export function Button({ children, href, accent = "bg-ai", className = "" }: { children: React.ReactNode; href?: string; accent?: string; className?: string }) {
+export function Button({ children, href, accent = "bg-ai", className = "", external = false }: { children: React.ReactNode; href?: string; accent?: string; className?: string; external?: boolean }) {
   const textColor = accent.includes("ai") || accent.includes("amber") ? "text-ink" : "text-white";
   const baseClasses = `inline-block px-6 py-3 rounded-xl ${textColor} font-bold no-underline transition-transform hover:-translate-y-0.5 shadow-sm hover:shadow-md ${accent} ${className}`;
-  return href ? <a href={href} className={baseClasses}>{children}</a> : <button className={baseClasses}>{children}</button>;
+  if (!href) return <button className={baseClasses}>{children}</button>;
+  const target = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
+  return <a href={href} className={baseClasses} {...target}>{children}</a>;
 }
 
-export function Section({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  return <section className={`max-w-[1000px] mx-auto px-6 py-16 ${className}`}>{children}</section>;
+export function Section({ children, className = "", id }: { children: React.ReactNode; className?: string; id?: string }) {
+  return <section id={id} className={`max-w-[1000px] mx-auto px-6 py-16 ${className}`}>{children}</section>;
 }
 
 export function Card({ children, accentClass, kicker, title, tagline, href, cta }: { children?: React.ReactNode, accentClass?: string, kicker?: string, title?: string, tagline?: string, href?: string, cta?: string }) {
