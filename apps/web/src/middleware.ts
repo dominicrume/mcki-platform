@@ -14,15 +14,19 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Map each subdomain onto its route segment. Absolute links (/education/ai-workshop)
-  // must resolve on the apex and on the subdomain alike, so skip the rewrite when the
-  // segment is already present rather than prefixing it twice.
-  for (const segment of ['education', 'ai', 'live'] as const) {
-    if (!hostname.startsWith(`${segment}.`)) continue;
-    if (url.pathname === `/${segment}` || url.pathname.startsWith(`/${segment}/`)) {
-      return NextResponse.next();
-    }
-    url.pathname = `/${segment}${url.pathname === '/' ? '' : url.pathname}`;
+  // The pillars are routes in one app. A subdomain maps onto its own segment, but every
+  // pillar path must also resolve as-is from any origin, because the nav links to same-origin
+  // paths like /ai. So: pass through anything already addressing a known pillar, and only
+  // prefix the bare paths that a subdomain visitor would type.
+  const PILLARS = ['education', 'ai', 'live', 'partners'] as const;
+  const addressesPillar = PILLARS.some(
+    (p) => url.pathname === `/${p}` || url.pathname.startsWith(`/${p}/`)
+  );
+  if (addressesPillar) return NextResponse.next();
+
+  const subdomain = PILLARS.find((p) => hostname.startsWith(`${p}.`));
+  if (subdomain) {
+    url.pathname = `/${subdomain}${url.pathname === '/' ? '' : url.pathname}`;
     return NextResponse.rewrite(url);
   }
 

@@ -51,11 +51,14 @@ export function ProgressBar({ progress, label, total }: { progress: number; tota
 }
 
 export function Nav({ currentApp = "web" }: { currentApp?: "web" | "education" | "ai" | "live" | "partners" }) {
-  const webUrl = process.env.NEXT_PUBLIC_WEB_URL || "https://mckisolutions.com";
-  const educationUrl = process.env.NEXT_PUBLIC_EDUCATION_URL || "https://education.mckisolutions.com";
-  const aiUrl = process.env.NEXT_PUBLIC_AI_URL || "https://ai.mckisolutions.com";
-  const liveUrl = process.env.NEXT_PUBLIC_LIVE_URL || "https://live.mckisolutions.com";
-  const partnersUrl = process.env.NEXT_PUBLIC_PARTNERS_URL || "https://partners.mckisolutions.com";
+  // The four pillars are routes in one app, not separate deployments, so these default to
+  // same-origin paths. They resolve wherever the app is served — a preview URL, the apex, or
+  // a pillar subdomain. Set the NEXT_PUBLIC_*_URL vars only to point a pillar at a different origin.
+  const webUrl = process.env.NEXT_PUBLIC_WEB_URL || "/";
+  const educationUrl = process.env.NEXT_PUBLIC_EDUCATION_URL || "/education";
+  const aiUrl = process.env.NEXT_PUBLIC_AI_URL || "/ai";
+  const liveUrl = process.env.NEXT_PUBLIC_LIVE_URL || "/live";
+  const partnersUrl = process.env.NEXT_PUBLIC_PARTNERS_URL || "/partners";
 
   return (
     <nav className="border-b border-white/10 px-6 py-4 flex justify-between items-center max-w-[1000px] mx-auto overflow-x-auto whitespace-nowrap">
