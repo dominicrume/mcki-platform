@@ -46,11 +46,11 @@ export default function Home() {
         {/* The "Norman Newtimes Roman" elite serif typography for the hook */}
         <h1 className="font-display font-medium text-[clamp(48px,8vw,96px)] leading-[1.05] tracking-tight mb-8 text-white max-w-[1000px] mx-auto drop-shadow-2xl">
           Education Excellence.<br/>
-          <span className="italic text-white/50 font-light">meets</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-ai via-[#FFF0B3] to-ai">Autonomous AI.</span>
+          <span className="italic text-white/50 font-light">meets</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-ai via-[#FFF0B3] to-ai">Agentic AI.</span>
         </h1>
         
         <p className="font-sans text-[18px] md:text-[22px] font-light text-white/60 max-w-[700px] mx-auto leading-relaxed mb-12">
-          We secure admissions into the world's most prestigious universities, and engineer the autonomous AI systems that run modern elite enterprises. 
+          We secure admissions into the world's most prestigious universities, and engineer the agentic AI systems that run modern elite enterprises. 
           <strong className="text-white font-normal block mt-2">Two divisions. One world-class standard.</strong>
         </p>
         
@@ -107,7 +107,7 @@ export default function Home() {
             <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-ai mb-4">Division 02</p>
             <h2 className="font-display font-medium text-[clamp(40px,5vw,64px)] text-white mb-6 leading-tight">The AI & Agents Studio.</h2>
             <p className="font-sans text-lg text-white/60 leading-relaxed mb-8">
-              {ai.hero_sub} We engineer bespoke, autonomous AI systems that execute complex workflows and scale elite operations infinitely.
+              {ai.hero_sub} We engineer bespoke, agentic AI systems that execute complex workflows and scale elite operations infinitely.
             </p>
             <Button href="/ai" accent="bg-ai" className="shadow-[0_0_30px_rgba(255,215,0,0.3)]">Enter AI Division →</Button>
           </div>
