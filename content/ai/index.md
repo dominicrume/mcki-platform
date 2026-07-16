@@ -1,25 +1,24 @@
 ---
 pillar: ai
-title: MCKI AI & Agents
-tagline: We build the AI agents that run your business.
+title: Enterprise AI Solutions & Corporate Training | MCKI AI & Agents
+tagline: Transform your business with custom Agentic AI solutions and upskill your workforce for the future.
 accent: "#5B3FD9"
 promise:
-  - { label: Cheaper, value: 5x }
-  - { label: Faster, value: 7x }
-  - { label: Clearer, value: 10x }
-hero_sub: The MCKI AI division. We build working agentic-AI systems — not slideware. Proven with real businesses.
+  - { label: ROI Growth, value: 5x }
+  - { label: Automation Speed, value: 7x }
+  - { label: Process Clarity, value: 10x }
+hero_sub: The MCKI AI division builds enterprise-grade, autonomous software products. We teach the students that come to us, we train corporate staff, and we build software products for companies as well.
 builds:
-  - title: Agentic Workflows
-    desc: Agents that automate the repetitive work — enquiries, follow-ups, operations.
-  - title: SaaS Platforms
-    desc: Full custom platforms built 5x cheaper and 7x faster than the old way.
-  - title: AI Training & Courses
-    desc: We teach businesses to build it themselves. Foundation £600 · Professional £799 · Mastery £999.
+  - title: Enterprise AI Software Products
+    desc: "Deploy custom, autonomous AI agents that streamline operations, reduce overhead costs, and automate complex workflows for rapid business scalability."
+  - title: Corporate Staff Training in AI
+    desc: "Future-proof your workforce. We train your teams to integrate generative AI and Agentic systems into their daily operations, driving massive productivity gains."
+  - title: AI Education for Students
+    desc: "Master the technology of tomorrow. We offer world-class AI education programs to give students a competitive edge in the modern, automated economy."
 ---
 
-The AI division grew out of MCKI's education roots. Because we had a talent
-pool and teaching infrastructure, we built a team that ships real agentic-AI
-systems for real businesses.
+The **MCKI AI division** is at the forefront of the artificial intelligence revolution. We go far beyond basic consulting by offering a comprehensive, end-to-end suite of enterprise AI solutions tailored for modern businesses and individuals.
 
-We don't just consult on AI. We build the agents that run the business —
-cutting cost, saving time, and making operations clearer.
+Whether we are teaching the next generation of students in AI development, upskilling corporate staff to maximize productivity with Generative AI, or building bespoke software products and autonomous agents for fast-growing companies, our singular focus remains on delivering tangible, real-world ROI. 
+
+We don't just talk about AI strategy. We actively build, deploy, and maintain the intelligent systems that run modern, automated enterprises.

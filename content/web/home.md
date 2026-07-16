@@ -1,7 +1,7 @@
 ---
 hero:
-  title: "One company.<br />Two ways we change your future."
-  subtitle: "MCKI started in education — getting students into the world's best universities. From that foundation we built an AI division that builds the agents running modern businesses. Choose your door."
+  title: "Empowering Your Future Through<br />World-Class Education & Enterprise AI Solutions."
+  subtitle: "MCKI Solutions operates two elite divisions: a premier educational consultancy securing admissions to top global universities, and an advanced AI agency building custom enterprise software and delivering expert corporate training."
 promise:
-  note: "The promise of the AI division — what agentic AI delivers."
+  note: "Delivering measurable, long-term impact across global education, cutting-edge technology, and enterprise business operations."
 ---

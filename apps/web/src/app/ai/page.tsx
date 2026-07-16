@@ -13,11 +13,11 @@ export default function AiHome() {
 
   return (
     <main>
-      <Section className="pt-24 pb-16">
+      <Section className="pt-24 pb-16 animate-fade-in-up">
         <p className="font-mono text-[12px] tracking-widest uppercase text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)] mb-3">
           MCKI · AI &amp; Agents
         </p>
-        <h1 className="font-extrabold text-[clamp(32px,5vw,56px)] leading-tight text-white mb-4">
+        <h1 className="font-extrabold text-[clamp(32px,5vw,56px)] leading-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/70">
           {d.tagline ?? "We build the AI agents that run your business."}
         </h1>
         <p className="text-[18px] text-white/70 max-w-[620px] leading-relaxed mb-12">
@@ -31,7 +31,7 @@ export default function AiHome() {
           ))}
         </div>
         <div className="mb-16">
-          <a href="/courses" className="inline-block px-6 py-3 rounded-xl bg-ai text-ink font-bold transition-transform hover:-translate-y-0.5 shadow-sm hover:shadow-md">
+          <a href="/ai/courses" className="inline-block px-6 py-3 rounded-xl bg-ai text-ink font-bold transition-transform hover:-translate-y-0.5 shadow-sm hover:shadow-md">
             View Training Courses →
           </a>
         </div>
@@ -41,7 +41,7 @@ export default function AiHome() {
           {proof.map((p) => {
             const pd = p.data as any;
             return (
-              <Card key={p.slug} title={pd.client} tagline={pd.build} href={`/proof/${p.slug}`} cta="Read Case Study →" />
+              <Card key={p.slug} title={pd.client} tagline={pd.build} href={`/ai/proof/${p.slug}`} cta="Read Case Study →" />
             );
           })}
         </div>

@@ -1,6 +1,6 @@
 ---
-slug: agentic-ai-october
-title: Agentic AI — The Year-End Experience
+slug: agentic-ai-mastermind-october
+title: Agentic AI Mastermind
 date: 2026-10-11
 time: "1:00 PM – 4:00 PM"
 venue: Birmingham · Venue TBC
@@ -42,10 +42,10 @@ modules:
       community: { label: "Join the MCKI WhatsApp Community", link: "https://chat.whatsapp.com/[YOUR_INVITE_CODE]" }
 ---
 
-# Agentic AI — Closing Out the Year
+# Agentic AI Mastermind — October 2026
 
-Following our massive successes this year — from our foundational event on **February 28th**, our feature at **Frontier Tech X at Birmingham City University on March 27th**, and our blockbuster Birmingham event on **June 27th** — we are closing out the year on **October 11th** with our biggest live experience yet.
+Following our massive successes this year, we are proud to announce the **Agentic AI Mastermind** on **October 11th, 2026**. This is our most exclusive and impactful live experience yet.
 
-The feedback has been nothing short of awesome. Now, it's time to build the agents that will run your business into the new year.
+The feedback from our previous masterclasses has been nothing short of awesome. Now, it's time to build the autonomous agents that will scale your operations, reduce overhead, and run your business into the new year.
 
-This is not a pitch deck. Watch agents get built in real time, around a real business chosen from the audience.
+This is not a traditional pitch deck or lecture. Watch advanced AI systems get built in real-time, custom-tailored around a real business chosen directly from the audience. Step into the future of corporate efficiency.

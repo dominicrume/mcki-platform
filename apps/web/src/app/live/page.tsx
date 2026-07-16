@@ -72,7 +72,7 @@ export default function LiveHub() {
   );
 }
 
-import { LiveForm } from "../components/LiveForm";
+import { LiveForm } from "../../components/LiveForm";
 
 function Module({ title, note, accentClass, formAction }: { title: string; note?: string; accentClass: string; formAction?: string }) {
   return (
