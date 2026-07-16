@@ -10,7 +10,7 @@ promise:
 hero_sub: The MCKI AI division builds enterprise-grade, autonomous software products. We teach the students that come to us, we train corporate staff, and we build software products for companies as well.
 builds:
   - title: Enterprise AI Software Products
-    desc: "Deploy custom, autonomous AI agents that streamline operations, reduce overhead costs, and automate complex workflows for rapid business scalability."
+    desc: "Deploy custom, agentic AI agents that streamline operations, reduce overhead costs, and automate complex workflows for rapid business scalability."
   - title: Corporate Staff Training in AI
     desc: "Future-proof your workforce. We train your teams to integrate generative AI and Agentic systems into their daily operations, driving massive productivity gains."
   - title: AI Education for Students
