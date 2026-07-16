@@ -1,49 +1,75 @@
 /**
  * @mcki/ui — shared components built on @mcki/brand tokens.
- * AGENT: expand this into the full design system (Button, Section, Card,
- * Nav, Footer). Stubs below establish the pattern.
+ * Elite UI component system utilizing glassmorphism, precise typography, and subtle micro-animations.
  */
 import React from "react";
 import { colors, brand } from "@mcki/brand/tokens";
 
 export function Button({ children, href, accent = "bg-ai", className = "", external = false }: { children: React.ReactNode; href?: string; accent?: string; className?: string; external?: boolean }) {
-  const textColor = accent.includes("ai") || accent.includes("amber") ? "text-ink" : "text-white";
-  const baseClasses = `inline-block px-6 py-3 rounded-xl ${textColor} font-bold no-underline transition-transform hover:-translate-y-0.5 shadow-sm hover:shadow-md ${accent} ${className}`;
+  const isDarkText = accent.includes("ai") || accent.includes("amber") || accent.includes("white");
+  const textColor = isDarkText ? "text-[#0A192F]" : "text-white";
+  
+  // Elite button styling: precise padding, fully rounded, sophisticated shadows and transitions
+  const baseClasses = `inline-flex items-center justify-center px-8 py-4 rounded-full ${textColor} font-bold tracking-wide no-underline transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-${accent.replace('bg-', '')}/30 active:scale-95 ${accent} ${className}`;
+  
   if (!href) return <button className={baseClasses}>{children}</button>;
   const target = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
   return <a href={href} className={baseClasses} {...target}>{children}</a>;
 }
 
 export function Section({ children, className = "", id }: { children: React.ReactNode; className?: string; id?: string }) {
-  return <section id={id} className={`max-w-[1000px] mx-auto px-6 py-16 ${className}`}>{children}</section>;
+  return <section id={id} className={`max-w-[1200px] mx-auto px-6 py-20 md:py-32 ${className}`}>{children}</section>;
 }
 
 export function Card({ children, accentClass, kicker, title, tagline, href, cta }: { children?: React.ReactNode, accentClass?: string, kicker?: string, title?: string, tagline?: string, href?: string, cta?: string }) {
   const inner = (
-    <>
-      {kicker && <p className={`font-mono text-[10px] tracking-widest uppercase mb-2 ${accentClass ? `text-${accentClass.replace('bg-', '')}` : ''}`}>{kicker}</p>}
-      {title && <h2 className="text-3xl font-extrabold text-white mb-2">{title}</h2>}
-      {tagline && <p className="text-[15px] text-white/70 leading-relaxed mb-5">{tagline}</p>}
-      {cta && <span className={`text-[14px] font-semibold ${accentClass ? `text-${accentClass.replace('bg-', '')}` : ''}`}>{cta}</span>}
+    <div className="flex flex-col h-full relative z-10">
+      {kicker && <p className={`font-sans text-xs tracking-[0.2em] uppercase mb-4 ${accentClass ? `text-${accentClass.replace('bg-', '')}` : 'text-white/50'}`}>{kicker}</p>}
+      {title && <h2 className="font-display text-3xl lg:text-4xl font-medium text-white mb-4 leading-tight">{title}</h2>}
+      {tagline && <p className="font-sans text-base lg:text-lg text-white/70 leading-relaxed mb-8 flex-grow">{tagline}</p>}
+      {cta && (
+        <div className={`mt-auto inline-flex items-center gap-2 font-sans text-sm font-bold tracking-wide uppercase transition-colors ${accentClass ? `text-${accentClass.replace('bg-', '')}` : 'text-white'}`}>
+          {cta} <span className="text-lg leading-none transition-transform group-hover:translate-x-1">→</span>
+        </div>
+      )}
       {children}
-    </>
+    </div>
   );
-  const classes = `block p-7 rounded-2xl border border-white/10 bg-white/5 transition-transform hover:-translate-y-1 ${accentClass ? `border-t-4 border-t-${accentClass.replace('bg-', '')}` : ''}`;
-  return href ? <a href={href} className={classes}>{inner}</a> : <div className={classes}>{inner}</div>;
+  
+  // Elite Glassmorphism card
+  const classes = `group relative block p-8 lg:p-12 h-full rounded-[2rem] border border-white/5 bg-white/[0.02] backdrop-blur-md overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.04] hover:border-white/10 hover:shadow-2xl`;
+  
+  const CardWrapper = ({ children }: { children: React.ReactNode }) => (
+    <div className={classes}>
+      {/* Subtle background glow effect on hover */}
+      {accentClass && (
+        <div className={`absolute -top-32 -right-32 w-64 h-64 rounded-full blur-[100px] opacity-0 group-hover:opacity-20 transition-opacity duration-700 ${accentClass}`}></div>
+      )}
+      {children}
+    </div>
+  );
+
+  return href ? (
+    <a href={href} className="block h-full no-underline outline-none">
+      <CardWrapper>{inner}</CardWrapper>
+    </a>
+  ) : (
+    <CardWrapper>{inner}</CardWrapper>
+  );
 }
 
 export function ProgressBar({ progress, label, total }: { progress: number; total: number; label: string }) {
   const percentage = Math.min(100, Math.max(0, (progress / total) * 100));
   return (
     <div className="w-full">
-      <div className="flex justify-between items-end mb-2">
-        <span className="text-[14px] font-semibold text-white/90">{label}</span>
-        <span className="text-[12px] font-mono text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)]">{progress} / {total}</span>
+      <div className="flex justify-between items-end mb-3">
+        <span className="font-sans text-sm font-semibold tracking-wide text-white/90 uppercase">{label}</span>
+        <span className="font-sans text-xs tracking-widest text-ai opacity-80">{progress} / {total}</span>
       </div>
-      <div className="w-full bg-white/10 rounded-full h-3 overflow-hidden">
+      <div className="w-full bg-white/5 border border-white/10 rounded-full h-2 overflow-hidden backdrop-blur-sm">
         <div 
-          className="bg-ai h-3 rounded-full transition-all duration-1000 ease-out" 
-          style={{ width: `${percentage}%`, boxShadow: "0 0 10px rgba(255,215,0,0.5)" }}
+          className="bg-gradient-to-r from-ai/80 to-ai h-full rounded-full transition-all duration-1000 ease-out" 
+          style={{ width: `${percentage}%`, boxShadow: "0 0 15px rgba(255,215,0,0.5)" }}
         />
       </div>
     </div>
@@ -51,9 +77,6 @@ export function ProgressBar({ progress, label, total }: { progress: number; tota
 }
 
 export function Nav({ currentApp = "web" }: { currentApp?: "web" | "education" | "ai" | "live" | "partners" }) {
-  // The four pillars are routes in one app, not separate deployments, so these default to
-  // same-origin paths. They resolve wherever the app is served — a preview URL, the apex, or
-  // a pillar subdomain. Set the NEXT_PUBLIC_*_URL vars only to point a pillar at a different origin.
   const webUrl = process.env.NEXT_PUBLIC_WEB_URL || "/";
   const educationUrl = process.env.NEXT_PUBLIC_EDUCATION_URL || "/education";
   const aiUrl = process.env.NEXT_PUBLIC_AI_URL || "/ai";
@@ -61,13 +84,19 @@ export function Nav({ currentApp = "web" }: { currentApp?: "web" | "education" |
   const partnersUrl = process.env.NEXT_PUBLIC_PARTNERS_URL || "/partners";
 
   return (
-    <nav className="border-b border-white/10 px-6 py-4 flex justify-between items-center max-w-[1000px] mx-auto overflow-x-auto whitespace-nowrap">
-      <a href={webUrl} className="font-extrabold text-xl tracking-tight text-white no-underline mr-8">MCKI</a>
-      <div className="flex gap-6 text-[14px] font-medium items-center">
-        <a href={educationUrl} className={`no-underline transition-colors ${currentApp === 'education' ? 'text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)]' : 'text-white/70 hover:text-white'}`}>Education</a>
-        <a href={aiUrl} className={`no-underline transition-colors ${currentApp === 'ai' ? 'text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)]' : 'text-white/70 hover:text-white'}`}>AI & Agents</a>
-        <a href={liveUrl} className={`no-underline transition-colors ${currentApp === 'live' ? 'text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)]' : 'text-white/70 hover:text-white'}`}>Live</a>
-        <a href={partnersUrl} className={`no-underline transition-colors px-3 py-1.5 rounded-full ${currentApp === 'partners' ? 'bg-ai text-ink font-bold' : 'border border-ai text-ai hover:bg-ai/10'}`}>Partners</a>
+    <nav className="fixed top-0 inset-x-0 z-50 border-b border-white/5 bg-[#0A192F]/80 backdrop-blur-xl">
+      <div className="max-w-[1200px] mx-auto px-6 h-20 flex justify-between items-center">
+        <a href={webUrl} className="font-display font-bold text-2xl tracking-tight text-white no-underline flex items-center gap-2">
+          <span className="text-ai">MCKI</span><span className="font-sans text-sm font-light tracking-[0.2em] text-white/50 uppercase hidden sm:inline">Solutions</span>
+        </a>
+        <div className="flex gap-4 sm:gap-8 font-sans text-sm font-medium items-center overflow-x-auto no-scrollbar mask-edges">
+          <a href={educationUrl} className={`no-underline transition-colors whitespace-nowrap ${currentApp === 'education' ? 'text-white' : 'text-white/50 hover:text-white'}`}>Education</a>
+          <a href={aiUrl} className={`no-underline transition-colors whitespace-nowrap ${currentApp === 'ai' ? 'text-white' : 'text-white/50 hover:text-white'}`}>AI & Agents</a>
+          <a href={liveUrl} className={`no-underline transition-colors whitespace-nowrap flex items-center gap-2 ${currentApp === 'live' ? 'text-white' : 'text-white/50 hover:text-white'}`}>
+            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span> Live
+          </a>
+          <a href={partnersUrl} className={`no-underline transition-colors px-5 py-2 rounded-full whitespace-nowrap ${currentApp === 'partners' ? 'bg-white text-ink font-bold' : 'bg-white/5 border border-white/10 text-white hover:bg-white/10'}`}>Partners</a>
+        </div>
       </div>
     </nav>
   );

@@ -15,7 +15,8 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
-        display: ["Syne", "system-ui", "sans-serif"],
+        display: ["'Playfair Display'", "Georgia", "serif"],
+        serif: ["'Playfair Display'", "Georgia", "serif"],
       },
       animation: {
         "fade-in-up": "fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards",
