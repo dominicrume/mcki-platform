@@ -5,8 +5,8 @@
   "types": "src/index.tsx",
   "dependencies": {
     "@mcki/brand": "workspace:*",
-    "@supabase/supabase-js": "^2.108.2",
-    "framer-motion": "^12.42.2"
+    "framer-motion": "^12.42.2",
+    "postgres": "^3.4.9"
   },
   "peerDependencies": {
     "react": "^18.3.1"

@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { submitData } from "./supabase";
 import { motion } from "framer-motion";
+import { captureLead } from "./actions";
 
 export function EmailCapture({ ctaText = "Join the waitlist", source = "homepage", accentClass = "bg-ai text-ink" }: { ctaText?: string; source?: string; accentClass?: string }) {
   const [email, setEmail] = useState("");
@@ -14,14 +14,9 @@ export function EmailCapture({ ctaText = "Join the waitlist", source = "homepage
 
     setStatus("loading");
     try {
-      // Send to Supabase 'leads' table
-      const { error } = await submitData("leads", {
-        email,
-        source,
-        created_at: new Date().toISOString(),
-      });
-
-      if (error) throw error;
+      const res = await captureLead(source, email);
+      if (!res.success) throw new Error("Failed to capture lead");
+      
       setStatus("success");
       setEmail("");
     } catch (err) {

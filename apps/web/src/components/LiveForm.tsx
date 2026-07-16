@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { submitData } from "@mcki/ui";
+import { captureEventData } from "@mcki/ui/src/actions";
 
 export function LiveForm({ actionName, label, accentClass }: { actionName: string; label: string; accentClass: string }) {
   const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
@@ -11,7 +11,7 @@ export function LiveForm({ actionName, label, accentClass }: { actionName: strin
     e.preventDefault();
     if (!value) return;
     setStatus("submitting");
-    await submitData("event_data", { action: actionName, value });
+    await captureEventData(actionName, value);
     setStatus("success");
     setValue("");
   };
