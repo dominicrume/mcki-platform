@@ -2,6 +2,7 @@
  * Parent brand homepage — mckisolutions.com
  * A unified single-page architecture displaying all divisions with a world-class elite aesthetic.
  */
+import Image from "next/image";
 import { readDoc, listDocs } from "@mcki/content";
 import { brand, promise } from "@mcki/brand/tokens";
 import { Section, Card, Nav, Button, FadeIn, EmailCapture } from "@mcki/ui";
@@ -9,6 +10,7 @@ import { Section, Card, Nav, Button, FadeIn, EmailCapture } from "@mcki/ui";
 export default function Home() {
   const doc = readDoc("web", "home");
   const d = (doc?.data ?? {}) as any;
+  const testimonials = d.testimonials ?? [];
 
   // Education Content
   const eduDoc = readDoc("education", "index");
@@ -56,10 +58,28 @@ export default function Home() {
           </p>
           
           <div className="flex justify-center items-center">
-            <EmailCapture source="hero-homepage" ctaText="Join the Elite List" accentClass="bg-white text-ink" />
+            <EmailCapture source="hero-homepage" ctaText="Request a Private Consultation" accentClass="bg-white text-ink" />
           </div>
         </FadeIn>
       </Section>
+
+      {/* CREDIBILITY STRIP (TRUSTED BY / LOGOS) */}
+      <div className="w-full border-y border-white/5 bg-white/[0.01] overflow-hidden py-10 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-transparent to-ink z-10 pointer-events-none"></div>
+        <div className="flex w-[200%] animate-marquee items-center opacity-40">
+          {/* We duplicate the list to create an infinite scroll effect */}
+          {[1, 2].map((group) => (
+            <div key={group} className="flex justify-around items-center w-1/2 px-4 gap-16 font-display text-2xl tracking-widest text-white/50 uppercase">
+              <span>Oxford</span>
+              <span>Harvard</span>
+              <span>LSE</span>
+              <span>Stanford</span>
+              <span>MIT</span>
+              <span>Cambridge</span>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* LUXURY PROMISE STRIP (Customer Trust) */}
       <section className="relative z-10 border-y border-white/5 bg-white/[0.02] backdrop-blur-xl">
@@ -89,6 +109,11 @@ export default function Home() {
               <p className="font-sans text-lg text-white/60 leading-relaxed mb-8">
                 {edu.hero_sub} Our legacy division is built on an uncompromising standard of academic placement and strategic consulting.
               </p>
+              
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-8 border border-white/10 shadow-2xl">
+                <Image src="/images/education_campus.jpg" alt="Prestigious University Campus" fill className="object-cover hover:scale-105 transition-transform duration-1000 grayscale hover:grayscale-0 opacity-80" />
+              </div>
+
               <Button href="/education" accent="bg-education" className="shadow-[0_0_30px_rgba(0,45,98,0.4)]">View Full Consultancy →</Button>
             </div>
             
@@ -115,6 +140,11 @@ export default function Home() {
               <p className="font-sans text-lg text-white/60 leading-relaxed mb-8">
                 {ai.hero_sub} We engineer bespoke, agentic AI systems that execute complex workflows and scale elite operations infinitely.
               </p>
+              
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-8 border border-white/10 shadow-2xl">
+                <Image src="/images/ai_nodes.jpg" alt="Abstract Agentic AI Network" fill className="object-cover hover:scale-105 transition-transform duration-1000 grayscale hover:grayscale-0 opacity-80" />
+              </div>
+
               <Button href="/ai" accent="bg-ai" className="shadow-[0_0_30px_rgba(255,215,0,0.3)]">Enter AI Division →</Button>
             </div>
             
@@ -125,6 +155,52 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+        </FadeIn>
+      </Section>
+
+      {/* THE FIRM / PHILOSOPHY */}
+      <Section className="py-24 md:py-40 relative border-t border-white/5 bg-ink" id="firm">
+        <FadeIn delay={0.2}>
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="lg:w-1/2">
+              <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(255,255,255,0.05)] border border-white/10">
+                <Image src="/images/firm_boardroom.jpg" alt="The MCKI Firm Boardroom" fill className="object-cover hover:scale-105 transition-transform duration-1000 grayscale hover:grayscale-0 opacity-80" />
+              </div>
+            </div>
+            <div className="lg:w-1/2">
+              <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-white/40 mb-4">The Firm</p>
+              <h2 className="font-display font-medium text-[clamp(40px,5vw,56px)] text-white mb-8 leading-tight">{d.philosophy?.title || "The Standard of Excellence"}</h2>
+              <p className="font-sans text-xl text-white/60 leading-relaxed mb-10">
+                {d.philosophy?.body}
+              </p>
+              <div className="flex gap-4">
+                <Button href="#education" accent="bg-education">Explore Education</Button>
+                <Button href="#ai" accent="bg-ai">Explore AI Studio</Button>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+      </Section>
+
+      {/* CLIENT SUCCESS (TESTIMONIALS) */}
+      <Section className="py-24 md:py-32 relative border-t border-white/5 bg-white/[0.01]" id="success">
+        <FadeIn delay={0.2}>
+          <div className="text-center mb-16">
+             <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-white/40 mb-4">Client Success</p>
+             <h2 className="font-display font-medium text-[clamp(32px,4vw,48px)] text-white leading-tight">Uncompromising Results.</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((t: any, i: number) => (
+              <div key={i} className="p-8 rounded-3xl bg-white/[0.03] border border-white/5 flex flex-col justify-between hover:bg-white/[0.05] transition-colors group">
+                <p className="font-sans text-lg text-white/70 italic mb-8">"{t.quote}"</p>
+                <div>
+                  <p className="font-sans font-bold text-white mb-1">{t.name}</p>
+                  <p className={`font-sans text-sm font-medium ${t.division === 'ai' ? 'text-ai' : 'text-education'}`}>{t.role}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </FadeIn>
       </Section>
