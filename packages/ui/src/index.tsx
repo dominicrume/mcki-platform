@@ -103,6 +103,7 @@ export function Nav({ currentApp = "web" }: { currentApp?: "web" | "education" |
 }
 
 export { LeadForm } from "./LeadForm";
-export { submitData, supabase } from "./supabase";
 export * as emailService from "./email";
+export { FadeIn } from "./FadeIn";
+export { EmailCapture } from "./EmailCapture";
 

@@ -2,13 +2,15 @@
  * Parent brand homepage — mckisolutions.com
  * A unified single-page architecture displaying all divisions with a world-class elite aesthetic.
  */
+import Image from "next/image";
 import { readDoc, listDocs } from "@mcki/content";
 import { brand, promise } from "@mcki/brand/tokens";
-import { Section, Card, Nav, Button } from "@mcki/ui";
+import { Section, Card, Nav, Button, FadeIn, EmailCapture } from "@mcki/ui";
 
 export default function Home() {
   const doc = readDoc("web", "home");
   const d = (doc?.data ?? {}) as any;
+  const testimonials = d.testimonials ?? [];
 
   // Education Content
   const eduDoc = readDoc("education", "index");
@@ -35,42 +37,63 @@ export default function Home() {
       </div>
       
       {/* HERO SECTION */}
-      <Section className="pt-32 pb-20 md:pt-48 md:pb-32 text-center animate-fade-in-up">
-        <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md shadow-lg">
-          <span className="w-2 h-2 rounded-full bg-ai animate-pulse"></span>
-          <span className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-white/80">
-            {brand.name} · The Standard of Excellence
-          </span>
-        </div>
-        
-        {/* The "Norman Newtimes Roman" elite serif typography for the hook */}
-        <h1 className="font-display font-medium text-[clamp(48px,8vw,96px)] leading-[1.05] tracking-tight mb-8 text-white max-w-[1000px] mx-auto drop-shadow-2xl">
-          Education Excellence.<br/>
-          <span className="italic text-white/50 font-light">meets</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-ai via-[#FFF0B3] to-ai">Agentic AI.</span>
-        </h1>
-        
-        <p className="font-sans text-[18px] md:text-[22px] font-light text-white/60 max-w-[700px] mx-auto leading-relaxed mb-12">
-          We secure admissions into the world's most prestigious universities, and engineer the agentic AI systems that run modern elite enterprises. 
-          <strong className="text-white font-normal block mt-2">Two divisions. One world-class standard.</strong>
-        </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button href="#education" accent="bg-white" className="w-full sm:w-auto shadow-[0_0_30px_rgba(255,255,255,0.1)]">Discover Education</Button>
-          <Button href="#ai" accent="bg-transparent border border-white/20 hover:bg-white/5 text-white" className="w-full sm:w-auto">Explore AI Division</Button>
-        </div>
+      <Section className="pt-32 pb-20 md:pt-48 md:pb-32 text-center">
+        <FadeIn delay={0.1}>
+          <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md shadow-lg">
+            <span className="w-2 h-2 rounded-full bg-ai animate-pulse"></span>
+            <span className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-white/80">
+              {brand.name} · The Standard of Excellence
+            </span>
+          </div>
+          
+          {/* The "Norman Newtimes Roman" elite serif typography for the hook */}
+          <h1 className="font-display font-medium text-[clamp(48px,8vw,96px)] leading-[1.05] tracking-tight mb-8 text-white max-w-[1000px] mx-auto drop-shadow-2xl">
+            Education Excellence.<br/>
+            <span className="italic text-white/50 font-light">meets</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-ai via-[#FFF0B3] to-ai">Agentic AI.</span>
+          </h1>
+          
+          <p className="font-sans text-[18px] md:text-[22px] font-light text-white/60 max-w-[700px] mx-auto leading-relaxed mb-12">
+            We secure admissions into the world's most prestigious universities, and engineer the agentic AI systems that run modern elite enterprises. 
+            <strong className="text-white font-normal block mt-2">Two divisions. One world-class standard.</strong>
+          </p>
+          
+          <div className="flex justify-center items-center">
+            <EmailCapture source="hero-homepage" ctaText="Request a Private Consultation" accentClass="bg-white text-ink" />
+          </div>
+        </FadeIn>
       </Section>
+
+      {/* CREDIBILITY STRIP (TRUSTED BY / LOGOS) */}
+      <div className="w-full border-y border-white/5 bg-white/[0.01] overflow-hidden py-10 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-transparent to-ink z-10 pointer-events-none"></div>
+        <div className="flex w-[200%] animate-marquee items-center opacity-40">
+          {/* We duplicate the list to create an infinite scroll effect */}
+          {[1, 2].map((group) => (
+            <div key={group} className="flex justify-around items-center w-1/2 px-4 gap-16 font-display text-2xl tracking-widest text-white/50 uppercase">
+              <span>Oxford</span>
+              <span>Harvard</span>
+              <span>LSE</span>
+              <span>Stanford</span>
+              <span>MIT</span>
+              <span>Cambridge</span>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* LUXURY PROMISE STRIP (Customer Trust) */}
       <section className="relative z-10 border-y border-white/5 bg-white/[0.02] backdrop-blur-xl">
         <div className="max-w-[1200px] mx-auto px-6 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6 divide-y md:divide-y-0 md:divide-x divide-white/10">
-            {promise.map((p) => (
-              <div key={p.label} className="text-center group pt-8 md:pt-0 first:pt-0">
-                <div className="font-display font-medium text-5xl text-white mb-3 transition-transform duration-500 group-hover:scale-110 group-hover:text-ai">{p.value}</div>
-                <div className="font-sans text-[12px] font-bold tracking-[0.2em] uppercase text-white/40">{p.label}</div>
-              </div>
-            ))}
-          </div>
+          <FadeIn delay={0.2}>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6 divide-y md:divide-y-0 md:divide-x divide-white/10">
+              {promise.map((p) => (
+                <div key={p.label} className="text-center group pt-8 md:pt-0 first:pt-0">
+                  <div className="font-display font-medium text-5xl text-white mb-3 transition-transform duration-500 group-hover:scale-110 group-hover:text-ai">{p.value}</div>
+                  <div className="font-sans text-[12px] font-bold tracking-[0.2em] uppercase text-white/40">{p.label}</div>
+                </div>
+              ))}
+            </div>
+          </FadeIn>
         </div>
       </section>
 
@@ -78,48 +101,108 @@ export default function Home() {
       <Section className="py-24 md:py-40 relative" id="education">
         <div className="absolute top-1/2 left-0 w-96 h-96 bg-education/20 rounded-full blur-[150px] pointer-events-none -translate-y-1/2"></div>
         
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start relative z-10">
-          <div className="lg:w-1/3 sticky top-32">
-            <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-education mb-4">Division 01</p>
-            <h2 className="font-display font-medium text-[clamp(40px,5vw,64px)] text-white mb-6 leading-tight">The Education Consultancy.</h2>
-            <p className="font-sans text-lg text-white/60 leading-relaxed mb-8">
-              {edu.hero_sub} Our legacy division is built on an uncompromising standard of academic placement and strategic consulting.
-            </p>
-            <Button href="/education" accent="bg-education" className="shadow-[0_0_30px_rgba(0,45,98,0.4)]">View Full Consultancy →</Button>
-          </div>
-          
-          <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
-            {eduServices.map((s: any, i: number) => (
-              <div key={i} className={i % 2 === 1 ? "sm:mt-12" : ""}>
-                <Card title={s.title} tagline={s.desc} accentClass="bg-education" />
+        <FadeIn delay={0.2}>
+          <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start relative z-10">
+            <div className="lg:w-1/3 sticky top-32">
+              <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-education mb-4">Division 01</p>
+              <h2 className="font-display font-medium text-[clamp(40px,5vw,64px)] text-white mb-6 leading-tight">The Education Consultancy.</h2>
+              <p className="font-sans text-lg text-white/60 leading-relaxed mb-8">
+                {edu.hero_sub} Our legacy division is built on an uncompromising standard of academic placement and strategic consulting.
+              </p>
+              
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-8 border border-white/10 shadow-2xl">
+                <Image src="/images/education_campus.jpg" alt="Prestigious University Campus" fill className="object-cover hover:scale-105 transition-transform duration-1000 grayscale hover:grayscale-0 opacity-80" />
               </div>
-            ))}
+
+              <Button href="/education" accent="bg-education" className="shadow-[0_0_30px_rgba(0,45,98,0.4)]">View Full Consultancy →</Button>
+            </div>
+            
+            <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+              {eduServices.map((s: any, i: number) => (
+                <div key={i} className={i % 2 === 1 ? "sm:mt-12" : ""}>
+                  <Card title={s.title} tagline={s.desc} accentClass="bg-education" />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        </FadeIn>
       </Section>
 
       {/* AI DIVISION */}
       <Section className="py-24 md:py-40 relative border-t border-white/5 bg-gradient-to-b from-white/[0.01] to-transparent" id="ai">
         <div className="absolute top-1/2 right-0 w-96 h-96 bg-ai/10 rounded-full blur-[150px] pointer-events-none -translate-y-1/2"></div>
         
-        <div className="flex flex-col lg:flex-row-reverse gap-16 lg:gap-24 items-start relative z-10">
-          <div className="lg:w-1/3 sticky top-32">
-            <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-ai mb-4">Division 02</p>
-            <h2 className="font-display font-medium text-[clamp(40px,5vw,64px)] text-white mb-6 leading-tight">The AI & Agents Studio.</h2>
-            <p className="font-sans text-lg text-white/60 leading-relaxed mb-8">
-              {ai.hero_sub} We engineer bespoke, agentic AI systems that execute complex workflows and scale elite operations infinitely.
-            </p>
-            <Button href="/ai" accent="bg-ai" className="shadow-[0_0_30px_rgba(255,215,0,0.3)]">Enter AI Division →</Button>
+        <FadeIn delay={0.2}>
+          <div className="flex flex-col lg:flex-row-reverse gap-16 lg:gap-24 items-start relative z-10">
+            <div className="lg:w-1/3 sticky top-32">
+              <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-ai mb-4">Division 02</p>
+              <h2 className="font-display font-medium text-[clamp(40px,5vw,64px)] text-white mb-6 leading-tight">The AI & Agents Studio.</h2>
+              <p className="font-sans text-lg text-white/60 leading-relaxed mb-8">
+                {ai.hero_sub} We engineer bespoke, agentic AI systems that execute complex workflows and scale elite operations infinitely.
+              </p>
+              
+              <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-8 border border-white/10 shadow-2xl">
+                <Image src="/images/ai_nodes.jpg" alt="Abstract Agentic AI Network" fill className="object-cover hover:scale-105 transition-transform duration-1000 grayscale hover:grayscale-0 opacity-80" />
+              </div>
+
+              <Button href="/ai" accent="bg-ai" className="shadow-[0_0_30px_rgba(255,215,0,0.3)]">Enter AI Division →</Button>
+            </div>
+            
+            <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+              {aiBuilds.map((s: any, i: number) => (
+                <div key={i} className={i % 2 === 0 ? "sm:mt-12" : ""}>
+                  <Card title={s.title} tagline={s.desc} accentClass="bg-ai" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </FadeIn>
+      </Section>
+
+      {/* THE FIRM / PHILOSOPHY */}
+      <Section className="py-24 md:py-40 relative border-t border-white/5 bg-ink" id="firm">
+        <FadeIn delay={0.2}>
+          <div className="flex flex-col lg:flex-row gap-16 items-center">
+            <div className="lg:w-1/2">
+              <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(255,255,255,0.05)] border border-white/10">
+                <Image src="/images/firm_boardroom.jpg" alt="The MCKI Firm Boardroom" fill className="object-cover hover:scale-105 transition-transform duration-1000 grayscale hover:grayscale-0 opacity-80" />
+              </div>
+            </div>
+            <div className="lg:w-1/2">
+              <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-white/40 mb-4">The Firm</p>
+              <h2 className="font-display font-medium text-[clamp(40px,5vw,56px)] text-white mb-8 leading-tight">{d.philosophy?.title || "The Standard of Excellence"}</h2>
+              <p className="font-sans text-xl text-white/60 leading-relaxed mb-10">
+                {d.philosophy?.body}
+              </p>
+              <div className="flex gap-4">
+                <Button href="#education" accent="bg-education">Explore Education</Button>
+                <Button href="#ai" accent="bg-ai">Explore AI Studio</Button>
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+      </Section>
+
+      {/* CLIENT SUCCESS (TESTIMONIALS) */}
+      <Section className="py-24 md:py-32 relative border-t border-white/5 bg-white/[0.01]" id="success">
+        <FadeIn delay={0.2}>
+          <div className="text-center mb-16">
+             <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-white/40 mb-4">Client Success</p>
+             <h2 className="font-display font-medium text-[clamp(32px,4vw,48px)] text-white leading-tight">Uncompromising Results.</h2>
           </div>
           
-          <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
-            {aiBuilds.map((s: any, i: number) => (
-              <div key={i} className={i % 2 === 0 ? "sm:mt-12" : ""}>
-                <Card title={s.title} tagline={s.desc} accentClass="bg-ai" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {testimonials.map((t: any, i: number) => (
+              <div key={i} className="p-8 rounded-3xl bg-white/[0.03] border border-white/5 flex flex-col justify-between hover:bg-white/[0.05] transition-colors group">
+                <p className="font-sans text-lg text-white/70 italic mb-8">"{t.quote}"</p>
+                <div>
+                  <p className="font-sans font-bold text-white mb-1">{t.name}</p>
+                  <p className={`font-sans text-sm font-medium ${t.division === 'ai' ? 'text-ai' : 'text-education'}`}>{t.role}</p>
+                </div>
               </div>
             ))}
           </div>
-        </div>
+        </FadeIn>
       </Section>
 
       {/* LIVE EVENT BANNER */}
@@ -130,34 +213,38 @@ export default function Home() {
             <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 mix-blend-overlay"></div>
             <div className="absolute inset-0 bg-gradient-to-br from-ai/10 via-transparent to-education/10 opacity-50 group-hover:opacity-100 transition-opacity duration-1000"></div>
             
-            <div className="relative z-10 max-w-[800px] mx-auto">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 mb-8">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-                <span className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase">Upcoming Live Event</span>
-              </div>
-              
-              <h2 className="font-display font-medium text-[clamp(32px,5vw,56px)] text-white mb-6 leading-tight">
-                {nextEvent.data.title}
-              </h2>
-              
-              <p className="font-sans text-lg md:text-xl text-white/60 leading-relaxed mb-10">
-                Watch advanced AI systems get built in real-time, custom-tailored around a real business chosen directly from the audience. Step into the future of corporate efficiency.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12">
-                <div className="flex flex-col items-center">
-                  <span className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-white/40 mb-2">Date</span>
-                  <span className="font-sans text-white/90">{nextEvent.data.date instanceof Date ? nextEvent.data.date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : String(nextEvent.data.date)}</span>
+            <FadeIn delay={0.2}>
+              <div className="relative z-10 max-w-[800px] mx-auto">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 mb-8">
+                  <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                  <span className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase">Upcoming Live Event</span>
                 </div>
-                <div className="hidden sm:block w-px h-8 bg-white/10"></div>
-                <div className="flex flex-col items-center">
-                  <span className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-white/40 mb-2">Location</span>
-                  <span className="font-sans text-white/90">{nextEvent.data.venue}</span>
+                
+                <h2 className="font-display font-medium text-[clamp(32px,5vw,56px)] text-white mb-6 leading-tight">
+                  {nextEvent.data.title}
+                </h2>
+                
+                <p className="font-sans text-lg md:text-xl text-white/60 leading-relaxed mb-10">
+                  Watch advanced AI systems get built in real-time, custom-tailored around a real business chosen directly from the audience. Step into the future of corporate efficiency.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12">
+                  <div className="flex flex-col items-center">
+                    <span className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-white/40 mb-2">Date</span>
+                    <span className="font-sans text-white/90">{nextEvent.data.date instanceof Date ? nextEvent.data.date.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : String(nextEvent.data.date)}</span>
+                  </div>
+                  <div className="hidden sm:block w-px h-8 bg-white/10"></div>
+                  <div className="flex flex-col items-center">
+                    <span className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-white/40 mb-2">Location</span>
+                    <span className="font-sans text-white/90">{nextEvent.data.venue}</span>
+                  </div>
+                </div>
+                
+                <div className="flex justify-center items-center">
+                  <EmailCapture source="live-event-banner" ctaText="Claim Your Exclusive Spot" accentClass="bg-white text-ink" />
                 </div>
               </div>
-              
-              <Button href="/live" accent="bg-white text-ink">Claim Your Exclusive Spot →</Button>
-            </div>
+            </FadeIn>
           </div>
         </Section>
       )}
