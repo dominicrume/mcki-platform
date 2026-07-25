@@ -1,18 +1,19 @@
 ---
 hero:
-  title: "Learn how to build what we build."
-  subtitle: "We open-source our proprietary methods through our training programmes. Learn agentic AI architecture from the engineers who build it for enterprise."
+  title: "Practical Artificial Intelligence & Engineering."
+  subtitle: "We teach the exact technical methods our team uses in client engagements. No buzzwords or surface-level theory—just structured engineering and clear system architecture."
 partner:
-  title: "Voerm.co — Official Educational Partner"
-  subtitle: "MCKI Solutions has partnered with Voerm.co to deliver our cutting-edge AI curriculum. Join the free AI course today and start building."
+  title: "Vorem.co — Our Official Education Partner"
+  subtitle: "We have partnered with Vorem.co to host our core curriculum. Start with the foundational course below at no cost."
 courses:
-  - title: "The Free AI Foundation Course"
-    tagline: "Understand agentic workflows, prompt engineering, and the tools required to build basic agents."
-    kicker: "Free on Voerm.co"
+  - title: "The Foundation Engineering Course"
+    tagline: "A step-by-step introduction to modern software automation, prompt structuring, and practical system design."
+    kicker: "Free on Vorem.co"
     accentClass: "bg-ai"
     cta: "Start Learning for Free"
-    link: "https://voerm.co"
+    link: "https://vorem.co"
 waitlist:
-  title: "Enrolment Opening Soon"
-  subtitle: "Drop your email below to get early access to the next cohort."
+  title: "Next Advanced Cohort"
+  subtitle: "Enter your email address below to receive notification when our next live training cohort opens for enrolment."
 ---
+

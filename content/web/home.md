@@ -1,27 +1,28 @@
 ---
 hero:
-  title: "Empowering Your Future Through<br />World-Class Education & Enterprise AI Solutions."
-  subtitle: "MCKI Solutions operates two elite divisions: a premier educational consultancy securing admissions to top global universities, and an advanced AI agency building custom enterprise software and delivering expert corporate training."
+  title: "Guidance for Leading Global Universities<br />& Practical Artificial Intelligence."
+  subtitle: "MCKI Solutions is a specialized advisory practice. We guide ambitious students through competitive university admissions, and we help organizations build reliable software tools to streamline their daily work."
 promise:
-  note: "Delivering measurable, long-term impact across global education, cutting-edge technology, and enterprise business operations."
+  note: "Dedicated personal advisory, rigorous preparation, and dependable technical execution."
 philosophy:
-  title: "We Build The Future of Leadership."
-  body: "True authority is built on two pillars: profound human intelligence and autonomous technological capability. By securing admissions for brilliant minds into the world's most prestigious universities, and architecting bespoke agentic AI systems for global enterprises, we bridge the gap between academic elite and industry dominance."
+  title: "Our Advisory Philosophy"
+  body: "Whether guiding a student toward Oxford or Harvard, or helping a business automate repetitive daily administration, our principles remain unchanged: honest counsel, rigorous preparation, and personal attention. We do not rely on shortcuts or automated templates. We work closely with every client to understand their distinct ambitions and build a clear, practical path to achieving them."
 testimonials:
-  - name: "Dr. Alistair & Eleanor Vance"
+  - name: "David & Sarah H."
     role: "Parents of Admitted Student · London, UK"
-    quote: "When we approached MCKI, our daughter's personal statement lacked a defining narrative. The consultancy conducted a rigorous intellectual audit, rebuilt her application strategy from the ground up, and prepped her with Oxbridge alumni. She received her offer within weeks."
+    quote: "The guidance our daughter received was thorough and grounded. Instead of generic advice, her tutor worked patiently with her on her written essays and interview technique until she felt entirely confident."
     metric: "Oxford University · Law (Juris Doctor)"
     division: "education"
-  - name: "Marcus Thorne"
-    role: "Chief Operating Officer · Apex Global Logistics"
-    quote: "We were drowning in manual dispatch logs across 400+ daily routes. MCKI Studio architected an autonomous multi-agent AI workflow that integrates directly into our ERP. It now handles exception routing in seconds, eliminating human bottleneck entirely."
-    metric: "92% Reduction in Routing Errors · $420k Annual ROI"
+  - name: "Richard M."
+    role: "Managing Director, Regional Logistics"
+    quote: "Most technology consultants speak in jargon. The MCKI team examined our daily office administration, identified where our staff were losing hours to manual paperwork, and built a practical system that solved the problem within three weeks."
+    metric: "40% Reduction in Admin Hours · Rapid ROI"
     division: "ai"
-  - name: "Elena Rostova"
-    role: "MBA Candidate · Former Private Equity Associate"
-    quote: "Coming from a competitive finance background, standing out at Harvard Business School required an exceptional angle. MCKI treated my candidacy like a high-stakes corporate acquisition. Their positioning strategy directly secured my admission."
+  - name: "Elena K."
+    role: "Harvard MBA Candidate"
+    quote: "Applying to business school can feel overwhelming. My advisor at MCKI provided calm, direct feedback on my essays and professional background that brought real clarity and maturity to my application."
     metric: "Harvard Business School · MBA Class of 2026"
     division: "education"
 ---
+
 

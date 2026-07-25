@@ -1,24 +1,25 @@
 ---
 pillar: ai
-title: Enterprise AI Solutions & Corporate Training | MCKI AI & Agents
-tagline: Transform your business with custom Agentic AI solutions and upskill your workforce for the future.
+title: Practical Artificial Intelligence & Engineering | MCKI Solutions
+tagline: We build reliable software tools to automate daily administration, and we teach teams how to use them.
 accent: "#5B3FD9"
 promise:
-  - { label: ROI Growth, value: 5x }
-  - { label: Automation Speed, value: 7x }
-  - { label: Process Clarity, value: 10x }
-hero_sub: The MCKI AI division builds enterprise-grade, autonomous software products. We teach the students that come to us, we train corporate staff, and we build software products for companies as well.
+  - { label: Cost Reduction, value: 5x }
+  - { label: Working Speed, value: 7x }
+  - { label: System Clarity, value: 10x }
+hero_sub: Our engineering practice focuses on practical utility. We build custom software tools that eliminate manual paperwork for growing businesses, and we conduct practical training sessions for students and corporate teams.
 builds:
-  - title: Enterprise AI Software Products
-    desc: "Deploy custom, agentic AI agents that streamline operations, reduce overhead costs, and automate complex workflows for rapid business scalability."
-  - title: Corporate Staff Training in AI
-    desc: "Future-proof your workforce. We train your teams to integrate generative AI and Agentic systems into their daily operations, driving massive productivity gains."
-  - title: AI Education for Students
-    desc: "Master the technology of tomorrow. We offer world-class AI education programs to give students a competitive edge in the modern, automated economy."
+  - title: Custom Software & Automation
+    desc: "We design and build dependable software tools tailored to your daily operations. We focus on eliminating repetitive manual administration so your team can focus on client service."
+  - title: Team Training & Workshops
+    desc: "We conduct hands-on, practical workshops for your staff. We demonstrate exactly how to use modern software tools safely and effectively in their daily work without technical jargon."
+  - title: Student Engineering Courses
+    desc: "We teach practical software engineering and system design to students. Our courses focus on real-world problem solving and sound technical fundamentals."
 ---
 
-The **MCKI AI division** is at the forefront of the artificial intelligence revolution. We go far beyond basic consulting by offering a comprehensive, end-to-end suite of enterprise AI solutions tailored for modern businesses and individuals.
+The **MCKI AI Practice** is built on practical engineering principles rather than industry hype. We work alongside businesses and individuals to solve real operational bottlenecks.
 
-Whether we are teaching the next generation of students in AI development, upskilling corporate staff to maximize productivity with Generative AI, or building bespoke software products and autonomous agents for fast-growing companies, our singular focus remains on delivering tangible, real-world ROI. 
+Whether we are instructing students in system design, guiding corporate teams through practical software tools, or building custom automation for an organization, our focus is always on utility, clarity, and dependability.
 
-We don't just talk about AI strategy. We actively build, deploy, and maintain the intelligent systems that run modern, automated enterprises.
+We do not sell abstract strategy. We build, test, and support reliable software systems that make daily work simpler and more efficient.
+

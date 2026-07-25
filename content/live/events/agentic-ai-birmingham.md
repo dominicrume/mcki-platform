@@ -36,13 +36,12 @@ modules:
       books:
         - { title: Wealth of the Blockchain, link: "[BOOK_LINK_WEALTH_BLOCKCHAIN]" }
         - { title: An Evolution into the Metaverse, link: "[BOOK_LINK_METAVERSE]" }
-      course: { label: "Learn for free on Voerm.co", link: "https://voerm.co" }
+      course: { label: "Learn for free on Vorem.co", link: "https://vorem.co" }
       booking: { label: "Book a free discovery call", link: "[CALCOM_BOOKING_URL]" }
       community: { label: "Join the MCKI WhatsApp Community", link: "https://chat.whatsapp.com/[YOUR_INVITE_CODE]" }
 ---
 
 # Agentic AI Birmingham
 
-The flagship MCKI AI event. This same engine powers every future event —
-change this one markdown file (or add a new one) and the live hub re-renders.
-Timeless by design.
+The flagship MCKI live workshop. Here, we demonstrate how practical software automation replaces manual admin and saves hours every week.
+

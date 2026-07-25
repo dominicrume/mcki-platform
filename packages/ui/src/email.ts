@@ -56,7 +56,7 @@ export async function sendWelcomeEmail(user: { name: string; email: string }) {
     <h3>Immediate Next Steps:</h3>
     <ol>
       <li><strong>Join the Mastermind:</strong> <a href="${process.env.NEXT_PUBLIC_LIVE_URL || 'https://live.mckisolutions.com'}">Access the WhatsApp Community</a></li>
-      <li><strong>Start Learning:</strong> <a href="https://voerm.co">Access your free AI foundation course</a></li>
+      <li><strong>Start Learning:</strong> <a href="https://vorem.co">Access your free AI foundation course</a></li>
     </ol>
     <p>Best regards,<br/>The MCKI Team</p>
   `;

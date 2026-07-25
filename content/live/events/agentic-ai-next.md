@@ -37,15 +37,15 @@ modules:
       books:
         - { title: Wealth of the Blockchain, link: "[BOOK_LINK_WEALTH_BLOCKCHAIN]" }
         - { title: An Evolution into the Metaverse, link: "[BOOK_LINK_METAVERSE]" }
-      course: { label: "Learn for free on Voerm.co", link: "https://voerm.co" }
+      course: { label: "Learn for free on Vorem.co", link: "https://vorem.co" }
       booking: { label: "Book a free discovery call", link: "[CALCOM_BOOKING_URL]" }
       community: { label: "Join the MCKI WhatsApp Community", link: "https://chat.whatsapp.com/[YOUR_INVITE_CODE]" }
 ---
 
-# Agentic AI Mastermind — October 2026
+# Practical AI Workshop — October 2026
 
-Following our massive successes this year, we are proud to announce the **Agentic AI Mastermind** on **October 24th, 2026**. This is our most exclusive and impactful live experience yet.
+Following our recent training sessions, we will host our next live engineering workshop on **October 24th, 2026**.
 
-The feedback from our previous masterclasses has been nothing short of awesome. Now, it's time to build the autonomous agents that will scale your operations, reduce overhead, and run your business into the new year.
+This session focuses entirely on building software tools that automate repetitive daily admin, reduce overhead, and streamline your operations.
 
-This is not a traditional seminar. It is an exclusive executive briefing where we architect bespoke, autonomous AI workflows in real-time. Witness firsthand how we replace bloated corporate overhead with precision engineering, scaling elite enterprise operations infinitely.
+Rather than a lecture, this is a hands-on technical workshop where we build real systems live on stage. You will see exactly how we design, test, and deploy practical software tools that save teams hours of work every week.
