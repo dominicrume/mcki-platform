@@ -64,32 +64,32 @@ export default function Home() {
       </Section>
 
       {/* CREDIBILITY STRIP (TRUSTED BY / LOGOS) */}
-      <div className="w-full border-y border-white/5 bg-white/[0.01] overflow-hidden py-10 relative">
+      <div className="w-full border-y border-white/20 bg-[#0A1628] shadow-lg overflow-hidden py-10 relative">
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-transparent to-ink z-10 pointer-events-none"></div>
-        <div className="flex w-[200%] animate-marquee items-center opacity-40">
+        <div className="flex w-[200%] animate-marquee items-center opacity-90 font-serif">
           {/* We duplicate the list to create an infinite scroll effect */}
           {[1, 2].map((group) => (
-            <div key={group} className="flex justify-around items-center w-1/2 px-4 gap-16 font-display text-2xl tracking-widest text-white/50 uppercase">
-              <span>Oxford</span>
-              <span>Harvard</span>
-              <span>LSE</span>
-              <span>Stanford</span>
-              <span>MIT</span>
-              <span>Cambridge</span>
+            <div key={group} className="flex justify-around items-center w-1/2 px-4 gap-16 text-2xl md:text-3xl font-bold tracking-[0.15em] text-white uppercase drop-shadow-md">
+              <span className="hover:text-ai transition-colors cursor-default">Oxford</span>
+              <span className="hover:text-ai transition-colors cursor-default">Harvard</span>
+              <span className="hover:text-ai transition-colors cursor-default">LSE</span>
+              <span className="hover:text-ai transition-colors cursor-default">Stanford</span>
+              <span className="hover:text-ai transition-colors cursor-default">MIT</span>
+              <span className="hover:text-ai transition-colors cursor-default">Cambridge</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* LUXURY PROMISE STRIP (Customer Trust) */}
-      <section className="relative z-10 border-y border-white/5 bg-white/[0.02] backdrop-blur-xl">
+      <section className="relative z-10 border-y border-white/15 bg-[#0F2240] shadow-xl backdrop-blur-xl">
         <div className="max-w-[1200px] mx-auto px-6 py-16">
           <FadeIn delay={0.2}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6 divide-y md:divide-y-0 md:divide-x divide-white/10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6 divide-y md:divide-y-0 md:divide-x divide-white/15">
               {promise.map((p) => (
-                <div key={p.label} className="text-center group pt-8 md:pt-0 first:pt-0">
-                  <div className="font-display font-medium text-5xl text-white mb-3 transition-transform duration-500 group-hover:scale-110 group-hover:text-ai">{p.value}</div>
-                  <div className="font-sans text-[12px] font-bold tracking-[0.2em] uppercase text-white/40">{p.label}</div>
+                <div key={p.label} className="text-center group pt-8 md:pt-0 first:pt-0 cursor-default">
+                  <div className="font-display font-extrabold text-6xl text-white mb-2 transition-all duration-500 group-hover:scale-110 group-hover:text-ai drop-shadow-[0_2px_10px_rgba(255,255,255,0.2)]">{p.value}</div>
+                  <div className="font-sans text-sm font-extrabold tracking-[0.25em] uppercase text-white/90 group-hover:text-white transition-colors">{p.label}</div>
                 </div>
               ))}
             </div>
@@ -104,9 +104,9 @@ export default function Home() {
         <FadeIn delay={0.2}>
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start relative z-10">
             <div className="lg:w-1/3 sticky top-32">
-              <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-education mb-4">Division 01</p>
+              <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-blue-300 mb-4">Division 01</p>
               <h2 className="font-display font-medium text-[clamp(40px,5vw,64px)] text-white mb-6 leading-tight">The Education Consultancy.</h2>
-              <p className="font-sans text-lg text-white/60 leading-relaxed mb-8">
+              <p className="font-sans text-lg text-white/85 leading-relaxed mb-8">
                 {edu.hero_sub} Our legacy division is built on an uncompromising standard of academic placement and strategic consulting.
               </p>
               
@@ -137,7 +137,7 @@ export default function Home() {
             <div className="lg:w-1/3 sticky top-32">
               <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-ai mb-4">Division 02</p>
               <h2 className="font-display font-medium text-[clamp(40px,5vw,64px)] text-white mb-6 leading-tight">The AI & Agents Studio.</h2>
-              <p className="font-sans text-lg text-white/60 leading-relaxed mb-8">
+              <p className="font-sans text-lg text-white/85 leading-relaxed mb-8">
                 {ai.hero_sub} We engineer bespoke, agentic AI systems that execute complex workflows and scale elite operations infinitely.
               </p>
               
@@ -169,9 +169,9 @@ export default function Home() {
               </div>
             </div>
             <div className="lg:w-1/2">
-              <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-white/40 mb-4">The Firm</p>
+              <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-blue-300 mb-4">The Firm</p>
               <h2 className="font-display font-medium text-[clamp(40px,5vw,56px)] text-white mb-8 leading-tight">{d.philosophy?.title || "The Standard of Excellence"}</h2>
-              <p className="font-sans text-xl text-white/60 leading-relaxed mb-10">
+              <p className="font-sans text-xl text-white/85 leading-relaxed mb-10">
                 {d.philosophy?.body}
               </p>
               <div className="flex gap-4">
@@ -184,20 +184,29 @@ export default function Home() {
       </Section>
 
       {/* CLIENT SUCCESS (TESTIMONIALS) */}
-      <Section className="py-24 md:py-32 relative border-t border-white/5 bg-white/[0.01]" id="success">
+      <Section className="py-24 md:py-32 relative border-t border-white/15 bg-[#061021] shadow-2xl" id="success">
         <FadeIn delay={0.2}>
           <div className="text-center mb-16">
-             <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-white/40 mb-4">Client Success</p>
-             <h2 className="font-display font-medium text-[clamp(32px,4vw,48px)] text-white leading-tight">Uncompromising Results.</h2>
+             <p className="font-sans text-xs font-bold tracking-[0.25em] uppercase text-ai mb-4">Verifiable Proof of Impact</p>
+             <h2 className="font-display font-bold text-[clamp(36px,4.5vw,56px)] text-white leading-tight">Uncompromising Results.</h2>
+             <p className="font-sans text-lg text-white/85 max-w-2xl mx-auto mt-4">Our credibility is built on hard metrics and admissions into the world&apos;s most selective institutions and enterprises.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((t: any, i: number) => (
-              <div key={i} className="p-8 rounded-3xl bg-white/[0.03] border border-white/5 flex flex-col justify-between hover:bg-white/[0.05] transition-colors group">
-                <p className="font-sans text-lg text-white/70 italic mb-8">"{t.quote}"</p>
-                <div>
-                  <p className="font-sans font-bold text-white mb-1">{t.name}</p>
-                  <p className={`font-sans text-sm font-medium ${t.division === 'ai' ? 'text-ai' : 'text-education'}`}>{t.role}</p>
+              <div key={i} className="p-8 md:p-10 rounded-3xl bg-[#0D1E36] border-2 border-white/20 hover:border-white/50 transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col justify-between group relative overflow-hidden hover:-translate-y-2">
+                {t.metric && (
+                  <div className="mb-6 inline-flex items-center self-start px-4 py-1.5 rounded-full bg-white/10 border border-white/25 font-sans text-xs font-bold tracking-wider uppercase text-ai shadow-sm">
+                    ★ {t.metric}
+                  </div>
+                )}
+                <p className="font-serif text-lg md:text-xl text-white/95 italic leading-relaxed mb-8 flex-grow">&ldquo;{t.quote}&rdquo;</p>
+                <div className="pt-6 border-t border-white/15 flex items-center justify-between">
+                  <div>
+                    <p className="font-sans font-bold text-white text-base mb-1">{t.name}</p>
+                    <p className={`font-sans text-xs font-bold tracking-wider uppercase ${t.division === 'ai' ? 'text-ai' : 'text-blue-300'}`}>{t.role}</p>
+                  </div>
+                  <span className={`w-3 h-3 rounded-full shrink-0 ${t.division === 'ai' ? 'bg-ai shadow-[0_0_10px_#FFD700]' : 'bg-blue-400 shadow-[0_0_10px_#60A5FA]'}`}></span>
                 </div>
               </div>
             ))}

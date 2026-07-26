@@ -22,13 +22,16 @@ export function Section({ children, className = "", id }: { children: React.Reac
 }
 
 export function Card({ children, accentClass, kicker, title, tagline, href, cta }: { children?: React.ReactNode, accentClass?: string, kicker?: string, title?: string, tagline?: string, href?: string, cta?: string }) {
+  // Never use dark text-education (#002D62) on dark backgrounds; use luminous blue-300 for 100% legibility
+  const textColorClass = accentClass?.includes("education") ? "text-blue-300 font-bold" : accentClass ? `text-${accentClass.replace('bg-', '')} font-bold` : "text-white/70";
+
   const inner = (
     <div className="flex flex-col h-full relative z-10">
-      {kicker && <p className={`font-sans text-xs tracking-[0.2em] uppercase mb-4 ${accentClass ? `text-${accentClass.replace('bg-', '')}` : 'text-white/50'}`}>{kicker}</p>}
+      {kicker && <p className={`font-sans text-xs tracking-[0.2em] uppercase mb-4 ${textColorClass}`}>{kicker}</p>}
       {title && <h2 className="font-display text-3xl lg:text-4xl font-medium text-white mb-4 leading-tight">{title}</h2>}
-      {tagline && <p className="font-sans text-base lg:text-lg text-white/70 leading-relaxed mb-8 flex-grow">{tagline}</p>}
+      {tagline && <p className="font-sans text-base lg:text-lg text-white/85 leading-relaxed mb-8 flex-grow">{tagline}</p>}
       {cta && (
-        <div className={`mt-auto inline-flex items-center gap-2 font-sans text-sm font-bold tracking-wide uppercase transition-colors ${accentClass ? `text-${accentClass.replace('bg-', '')}` : 'text-white'}`}>
+        <div className={`mt-auto inline-flex items-center gap-2 font-sans text-sm tracking-wide uppercase transition-colors ${textColorClass}`}>
           {cta} <span className="text-lg leading-none transition-transform group-hover:translate-x-1">→</span>
         </div>
       )}
@@ -36,12 +39,11 @@ export function Card({ children, accentClass, kicker, title, tagline, href, cta 
     </div>
   );
   
-  // Elite Glassmorphism card
-  const classes = `group relative block p-8 lg:p-12 h-full rounded-[2rem] border border-white/5 bg-white/[0.02] backdrop-blur-md overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.04] hover:border-white/10 hover:shadow-2xl`;
+  // High-trust institutional card matting with sharp 2px border and deep rich background contrast
+  const classes = `group relative block p-8 lg:p-12 h-full rounded-[2rem] border-2 border-white/15 bg-[#0D1E36]/90 backdrop-blur-xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:bg-[#112645] hover:border-white/40 hover:shadow-[0_20px_50px_rgba(0,0,0,0.6)]`;
   
   const CardWrapper = ({ children }: { children: React.ReactNode }) => (
     <div className={classes}>
-      {/* Subtle background glow effect on hover */}
       {accentClass && (
         <div className={`absolute -top-32 -right-32 w-64 h-64 rounded-full blur-[100px] opacity-0 group-hover:opacity-20 transition-opacity duration-700 ${accentClass}`}></div>
       )}
