@@ -27,7 +27,7 @@ export const promise = [
 ] as const;
 
 export const type = {
-  display: "'Syne', system-ui, sans-serif",
+  display: "'Playfair Display', Georgia, serif",
   body:    "'Inter', system-ui, sans-serif",
   mono:    "'JetBrains Mono', monospace",
 } as const;
