@@ -22,10 +22,38 @@ const LEADERBOARD = [
 ];
 
 const REWARDS = [
-  { tier: "Bronze", req: 1, reward: "Exclusive WhatsApp Mastermind Access", unlocked: MOCK_USER.referrals >= 1 },
-  { tier: "Silver", req: 3, reward: "Free AI Foundation Course", unlocked: MOCK_USER.referrals >= 3 },
-  { tier: "Gold", req: 5, reward: "VIP Seating at Next Live Event", unlocked: MOCK_USER.referrals >= 5 },
-  { tier: "Platinum", req: 10, reward: "20% Cash Commission on Live Builds", unlocked: MOCK_USER.referrals >= 10 }
+  { 
+    tier: "Bronze", 
+    req: 1, 
+    reward: "Dominic Rume Book Bundle & WhatsApp Mastermind", 
+    desc: "Instant digital access to 'Wealth of the Blockchain' & 'An Evolution into the Metaverse' by Dominic Rume, plus private Mastermind entry.",
+    link: "https://chat.whatsapp.com/",
+    cta: "Access Book Bundle →",
+    unlocked: MOCK_USER.referrals >= 1 
+  },
+  { 
+    tier: "Silver", 
+    req: 3, 
+    reward: "Free AI Foundation Course on Vorem.co", 
+    desc: "Full complimentary access to our practical AI curriculum on Vorem.co to master agentic workflows and practical automation.",
+    link: "https://vorem.co",
+    cta: "Start Free on Vorem.co →",
+    unlocked: MOCK_USER.referrals >= 3 
+  },
+  { 
+    tier: "Gold", 
+    req: 5, 
+    reward: "VIP Seating at Next MCKI Live Event", 
+    desc: "Priority front-row seating and executive networking at our upcoming live AI & Education symposiums.",
+    unlocked: MOCK_USER.referrals >= 5 
+  },
+  { 
+    tier: "Platinum", 
+    req: 10, 
+    reward: "20% Cash Commission on Live Builds", 
+    desc: "Earn 20% direct cash commission on any enterprise AI agent system or consultancy package closed through your referral.",
+    unlocked: MOCK_USER.referrals >= 10 
+  }
 ];
 
 export default function PartnersDashboard() {
@@ -143,21 +171,32 @@ export default function PartnersDashboard() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {REWARDS.map((r, idx) => (
-                <div key={idx} className={`relative p-8 rounded-[2rem] border transition-all duration-500 overflow-hidden group flex flex-col justify-between min-h-[220px] ${r.unlocked ? 'bg-ai/[0.05] border-ai/30 hover:border-ai/60 hover:bg-ai/[0.08] shadow-[0_0_30px_rgba(255,215,0,0.05)]' : 'bg-white/[0.02] border-white/10 opacity-60 hover:opacity-100'}`}>
+                <div key={idx} className={`relative p-8 rounded-[2rem] border transition-all duration-500 overflow-hidden group flex flex-col justify-between min-h-[260px] ${r.unlocked ? 'bg-ai/[0.05] border-ai/30 hover:border-ai/60 hover:bg-ai/[0.08] shadow-[0_0_30px_rgba(255,215,0,0.05)]' : 'bg-white/[0.02] border-white/10 opacity-60 hover:opacity-100'}`}>
                   <div className={`absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-bl from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-full blur-2xl ${r.unlocked ? 'from-ai/30' : ''}`} />
                   
                   <div>
-                    <div className="flex justify-between items-start mb-6">
+                    <div className="flex justify-between items-start mb-4">
                       <span className={`text-[11px] font-mono font-bold uppercase tracking-[0.2em] ${r.unlocked ? 'text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)]' : 'text-white/40'}`}>
                         {r.tier}
                       </span>
                       {r.unlocked && <span className="text-[9px] bg-ai text-ink px-2.5 py-1 rounded-full font-black uppercase tracking-[0.1em] shadow-[0_0_10px_rgba(255,215,0,0.5)]">Unlocked</span>}
                     </div>
-                    <p className={`font-bold text-[17px] leading-snug relative z-10 ${r.unlocked ? 'text-white' : 'text-white/60'}`}>{r.reward}</p>
+                    <h4 className={`font-bold text-[17px] leading-snug mb-2 relative z-10 ${r.unlocked ? 'text-white' : 'text-white/60'}`}>{r.reward}</h4>
+                    {r.desc && <p className="text-[13px] text-white/60 leading-relaxed relative z-10 mb-4">{r.desc}</p>}
                   </div>
                   
-                  <div className="mt-8 pt-6 border-t border-white/10 relative z-10">
-                    <p className="text-[12px] font-mono text-white/40 uppercase tracking-widest">Req: {r.req} Referrals</p>
+                  <div className="mt-6 pt-5 border-t border-white/10 relative z-10 flex flex-col gap-3">
+                    {r.unlocked && r.link ? (
+                      <a 
+                        href={r.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-1.5 w-full py-2.5 px-4 rounded-xl bg-ai text-ink font-bold text-xs uppercase tracking-wider hover:bg-white transition-all duration-300 shadow-[0_0_15px_rgba(255,215,0,0.3)] no-underline text-center"
+                      >
+                        {r.cta}
+                      </a>
+                    ) : null}
+                    <p className="text-[11px] font-mono text-white/40 uppercase tracking-widest text-center">Req: {r.req} Referrals</p>
                   </div>
                 </div>
               ))}
