@@ -6,6 +6,7 @@
   "dependencies": {
     "@mcki/brand": "workspace:*",
     "framer-motion": "^12.42.2",
+    "lucide-react": "^1.28.0",
     "postgres": "^3.4.9"
   },
   "peerDependencies": {

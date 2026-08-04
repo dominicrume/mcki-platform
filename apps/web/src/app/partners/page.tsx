@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Section, ProgressBar, Nav } from "@mcki/ui";
+import { Section, ProgressBar, Nav, DynamicKYABadge } from "@mcki/ui";
 
 const MOCK_USER = {
   name: "Alistair",
@@ -179,7 +179,7 @@ export default function PartnersDashboard() {
                       <span className={`text-[11px] font-mono font-bold uppercase tracking-[0.2em] ${r.unlocked ? 'text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)]' : 'text-white/40'}`}>
                         {r.tier}
                       </span>
-                      {r.unlocked && <span className="text-[9px] bg-ai text-ink px-2.5 py-1 rounded-full font-black uppercase tracking-[0.1em] shadow-[0_0_10px_rgba(255,215,0,0.5)]">Unlocked</span>}
+                      {r.unlocked && <DynamicKYABadge action={`Granted Partner Tier: ${r.tier}`} rule_applied="KYA Protocol - Rule 3 (Ambassador Automations)" approver="System (Autonomous)" />}
                     </div>
                     <h4 className={`font-bold text-[17px] leading-snug mb-2 relative z-10 ${r.unlocked ? 'text-white' : 'text-white/60'}`}>{r.reward}</h4>
                     {r.desc && <p className="text-[13px] text-white/60 leading-relaxed relative z-10 mb-4">{r.desc}</p>}

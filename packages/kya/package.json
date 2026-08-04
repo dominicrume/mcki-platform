@@ -1,0 +1,17 @@
+{
+  "name": "@mcki/kya",
+  "version": "1.0.0",
+  "description": "KYA (Know Your AI) core library for stamping, logging, and observability",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc -w",
+    "lint": "eslint src/"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  }
+}

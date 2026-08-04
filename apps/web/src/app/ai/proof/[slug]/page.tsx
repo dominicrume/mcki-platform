@@ -1,5 +1,5 @@
 import { readDoc, listDocs } from "@mcki/content";
-import { Section } from "@mcki/ui";
+import { Section, DynamicKYABadge } from "@mcki/ui";
 import { notFound } from "next/navigation";
 import { ReactNode } from "react";
 
@@ -8,7 +8,7 @@ export async function generateStaticParams() {
   return proof.map((p) => ({ slug: p.slug }));
 }
 
-export default function ProofPage({ params }: { params: { slug: string } }) {
+export default async function ProofPage({ params }: { params: { slug: string } }) {
   const doc = readDoc("proof", params.slug);
   if (!doc) notFound();
 
@@ -17,10 +17,17 @@ export default function ProofPage({ params }: { params: { slug: string } }) {
   return (
     <main>
       <Section className="pt-24 pb-16 max-w-[800px]">
-        <p className="font-mono text-[12px] tracking-widest uppercase text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)] mb-3">
-          Case Study · {d.client}
-        </p>
-        <h1 className="font-extrabold text-[clamp(28px,4vw,48px)] leading-tight text-white mb-6">
+        <div className="flex items-center justify-between mb-3">
+          <p className="font-mono text-[12px] tracking-widest uppercase text-ai drop-shadow-[0_0_8px_rgba(255,215,0,0.4)]">
+            Case Study · {d.client}
+          </p>
+          <DynamicKYABadge 
+            action={`Rendered Proof Document: ${d.client}`}
+            rule_applied="KYA Protocol - Rule 3 (Immutable Audit Trail)"
+            approver="System (Autonomous)" 
+          />
+        </div>
+        <h1 className="font-extrabold text-[clamp(32px,5vw,56px)] leading-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/70">
           {d.build}
         </h1>
         <div className="flex flex-wrap gap-4 mb-12">

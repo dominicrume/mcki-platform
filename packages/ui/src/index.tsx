@@ -4,6 +4,7 @@
  */
 import React from "react";
 import { colors, brand } from "@mcki/brand/tokens";
+export * from "./kya-components";
 
 export function Button({ children, href, accent = "bg-ai", className = "", external = false }: { children: React.ReactNode; href?: string; accent?: string; className?: string; external?: boolean }) {
   const isDarkText = accent.includes("ai") || accent.includes("amber") || accent.includes("white");
