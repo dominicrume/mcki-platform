@@ -73,3 +73,91 @@ here as it works.
   to build from the repo root with pnpm. No custom domain is attached to it.
 - Neither Vercel nor Cloud Run currently fronts the live domain, despite the Cloud Run note
   above. Deploying does not change what the public sees until DNS is repointed.
+
+## Two new product apps: Data + Learn (2026-08-25)
+
+- **Separate apps, not routes inside `apps/web`.** The existing pillars
+  (education, ai, live) live as routes under `apps/web`. These two do not. A
+  records platform and an LMS are stateful applications with their own auth,
+  their own data model and their own release cadence — folding them into the
+  marketing app would couple a product outage to the brand site. Hard rule 9
+  (every app deploys independently) points the same way.
+- **Named `apps/data` and `apps/learn`.** Matches the existing convention of
+  naming apps for what they are (`web`, `education`, `ai`, `live`) rather than
+  for a product brand. Packages are `@mcki/data` and `@mcki/learn`. Intended
+  subdomains `data.` and `learn.mckisolutions.com`. Renaming later is cheap —
+  nothing outside the two folders references them yet.
+- **Dev ports 3010 and 3020**, leaving room below 3010 for the existing app and
+  any pillar apps that get extracted later.
+- **`surface.*` colours added to the product Tailwind configs.** Application
+  chrome needs elevation steps (sidebar, raised row, active row, hairline) that
+  a marketing page never needed. These are shades derived from `ink`, not new
+  brand colours — brand colours are byte-identical to `apps/web`. Hard rule 8
+  holds.
+- **`AppShell` duplicated in both apps rather than promoted to `packages/ui`.**
+  Two consumers is not yet evidence of a shared abstraction, and the two
+  products will pull the chrome in different directions (a grid canvas versus a
+  lesson player). Promote it to `packages/ui` when the third consumer appears
+  or when both stop diverging — not before.
+- **Landing pages state that nothing is built.** Both apps render an honest
+  empty state and a build-order list instead of mock bases or placeholder
+  courses. Fake rows in a scaffold get screenshotted and mistaken for progress.
+  Hard rule 6 (never fabricate) applies to product data, not just to copy.
+- **`robots: noindex` on both.** Neither app should be indexed while it is a
+  scaffold; remove when there is a real public surface.
+
+### Open question for Rume
+- Product naming — "MCKI Data" and "MCKI Learn" are working titles chosen to
+  match the folder names. If these get real product names, rename now while the
+  cost is two folders.
+
+## Reversal: Data + Learn fold into `apps/web` (2026-08-25, same day)
+
+Earlier today I created `apps/data` and `apps/learn` as standalone deployable
+apps. **That was wrong, and I have reversed it.** Both are now routes inside
+`apps/web` — `/data` and `/learn` — sharing one `AppShell` in
+`apps/web/src/components/AppShell.tsx`. The standalone app folders are deleted.
+
+The reversal is not a change of taste. It followed from auditing the actual
+deployment surface, which had never been written down:
+
+- **The platform is live, and it is on Railway, not Vercel.**
+  `www.mckisolutions.com` resolves to `3vp8so02.up.railway.app`, serves this
+  Next.js codebase (`server: railway-hikari`, `x-railway-edge: lhr1`), and
+  returns 200 on `/`, `/education`, `/ai`, `/live`, `/partners` and
+  `/education/ai-workshop`. The `Dockerfile` in the repo root is what builds it.
+- **There are six competing deploy targets for one codebase**: Railway (live),
+  Vercel `mcki-platform` (READY, no custom domain — a second live copy), and
+  Vercel `web`, `mcki-web`, `mcki-education`, `mcki-ai`, `mcki-live` (all ERROR
+  or never deployed). Plus an unused `cloudbuild.web.yaml` for Cloud Run.
+- **`apps/web/.vercel/project.json` points at `web`** — a project whose only
+  deployment attempt errored. Any `vercel` command run from that directory
+  targets a dead project rather than production. This is the mechanical cause
+  of deploys appearing to do nothing.
+- **No subdomain has DNS.** `data.`, `learn.`, `education.`, `ai.` and `live.`
+  all return NXDOMAIN. The apex `mckisolutions.com` still points at registrar
+  parking (`192.64.119.103`) and fails TLS; only `www.` works.
+
+Given that, shipping two more apps would have meant two more deploy targets in a
+repo that already cannot keep six straight, aimed at subdomains that do not
+resolve. The existing commit `4fd7cf4` — "fix(nav): link pillars by path, not by
+dead subdomains" — had already reached the same conclusion for the pillars. Data
+and Learn now follow the same rule.
+
+**Consequence for hard rule 9** (every app deploys independently): deferred, not
+abandoned. Independent deployment is worth having once there is one pipeline
+that reliably works and DNS that resolves. Extract a product into its own app at
+the point it needs its own release cadence — not before.
+
+**`AppShell` is now single-copy**, which supersedes this morning's note about
+deliberate duplication. One app, one component.
+
+### Open items for the user (deployment) — updated
+- Decide the canonical host. Railway serves the public site; Vercel
+  `mcki-platform` serves an unadvertised duplicate. Two live copies of one brand
+  will drift.
+- Delete or archive the four dead Vercel projects (`web`, `mcki-web`,
+  `mcki-education`, `mcki-ai`, `mcki-live`).
+- Repoint or remove `apps/web/.vercel/project.json`.
+- Point the apex `mckisolutions.com` at the canonical host. Customers who type
+  the domain without `www.` currently get a TLS failure.
