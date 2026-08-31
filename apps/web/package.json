@@ -11,6 +11,7 @@
   "dependencies": {
     "@mcki/brand": "workspace:*",
     "@mcki/content": "workspace:*",
+    "@mcki/db": "workspace:*",
     "@mcki/ui": "workspace:^",
     "framer-motion": "^12.42.2",
     "lucide-react": "^1.28.0",
