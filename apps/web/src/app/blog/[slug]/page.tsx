@@ -200,11 +200,11 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         {d.cover && (
           <figure className="m-0">
             <div
-              className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] bg-no-repeat"
+              className="relative aspect-[3/5] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] bg-no-repeat"
               style={{
                 backgroundImage: `url(${d.cover})`,
-                backgroundSize: "180%",
-                backgroundPosition: "52% 38%",
+                backgroundSize: "cover",
+                backgroundPosition: "center 48%",
               }}
               role="img"
               aria-label={d.coverAlt ?? d.title}

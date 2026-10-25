@@ -60,11 +60,11 @@ export default function BlogIndex() {
           >
             {featured.data.cover && (
               <div
-                className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white/[0.02] bg-no-repeat order-last md:order-first"
+                className="relative aspect-[3/5] overflow-hidden rounded-2xl bg-white/[0.02] bg-no-repeat order-last md:order-first"
                 style={{
                   backgroundImage: `url(${featured.data.cover})`,
-                  backgroundSize: "180%",
-                  backgroundPosition: "52% 38%",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center 48%",
                 }}
                 role="img"
                 aria-label={featured.data.coverAlt ?? featured.data.title}
