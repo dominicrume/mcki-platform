@@ -1,43 +1,45 @@
 ---
 title: "Your Story Is the General. AI Is the Army."
-subtitle: "Victor Okafor on the one thing agentic AI can't do for you — and why that's your edge."
-excerpt: "Storyteller and founder of Jali Group, Victor Okafor, brought the Birmingham room to its feet. Then he reframed what agentic AI is actually for."
+subtitle: "Victor Okafor's three-layer frame for building with agentic AI, delivered to a founder audience in Birmingham."
+excerpt: "Victor Okafor, storyteller and founder of Jali Group, told the MCKI Agentic AI room that the scarce input is no longer the AI. It is the thing worth feeding it."
 author: "Victor Okafor"
 authorRole: "Founder, Jali Group"
 event: "Agentic AI Birmingham"
 eventDate: "2026-06-27"
 publishedAt: "2026-10-25"
 tag: "Field Notes"
-cover: "/images/blog/victor-okafo-stage.jpg"
-coverAlt: "Victor Okafor on stage at MCKI's Agentic AI event in Birmingham, mic in hand, speaking to the audience."
+cover: "/images/blog/victor-okafor-stage.jpg"
+coverAlt: "Victor Okafor speaking at MCKI's Agentic AI event in Birmingham, standing in front of the whiteboard reading 'Agentic AI · The Exercise · Thesis · The Proof'."
 ---
 
-Storyteller and founder of Jali Group, Victor Okafor, brought the room to its feet. Literally. He opened with what he calls "The Robot Test," asking everyone to stand and sit down only when they believed AI could already do the task he named. Writing an email. Summarising a report. Creating a social media caption. Row by row, people sat.
+Victor Okafor, storyteller and founder of Jali Group, opened his keynote at MCKI's Agentic AI event by asking the room to stand. He called it "The Robot Test." He named a task, and anyone who believed AI could already do it was told to sit down. Write an email. Sit. Summarise a report. Sit. Write a social media caption. Sit. Row by row, the room emptied.
 
-Then he named the last one: telling the story of the moment that changed your life, and making a room full of strangers lean in and trust you. Almost everyone was still standing.
+Then he named the last task: tell the story of the moment that changed your life, so that a room full of strangers leans in and trusts you. Almost every founder in the room stayed on their feet.
 
 > "That's your moat. Technology doesn't have scars."
 
-From there, Victor reframed agentic AI for the audience. It is not a chatbot or a faster way to write emails. It is a system that plans, decides and executes on its own. You give it a mission and it goes to work. But he argued that most organisations are asking the wrong question. Everyone is asking *how* to use AI. Almost nobody is asking *what is worth using AI for*. His answer was the oldest technology humans ever invented: story.
+Victor used the exercise to reframe what agentic AI actually is. An agent plans, decides and acts on its own. You give it a mission and it goes to work. That capability, he argued, is now a commodity. The scarce input is the thing worth feeding it. Most leaders are asking how to use AI. Very few are asking what is worth using it for.
 
-He used his own journey as the proof. In 2023, with no connections and no audience, he launched *Watching A Man Change*, a 90-day public challenge to find out what would happen if he gave life 100%. In 90 days, it brought him 150,000 followers, 11 million views and over 400 new customers, and became the foundation of the creator economy business he runs today across London and Lagos. No algorithm lived those 90 days, he said. But once the story existed, technology could carry it further than any one person could alone.
+His answer was the oldest technology humans ever built: story.
+
+He offered his own run as the proof. In 2023, with no connections and no following, he began a ninety-day public challenge called *Watching A Man Change*. It drew 150,000 followers, 11 million views, and more than 400 new customers. It became the foundation of the creator-economy business he now runs across London and Lagos. No algorithm lived those ninety days. Once the story was lived, the algorithm could amplify it further than any one team ever could.
 
 ## The three layers
 
-Victor then broke his thesis into three layers:
+Victor broke his thesis into three statements for the room:
 
-1. **Story is the signal, AI is the amplifier.**
-2. **Story builds trust, AI builds systems.**
-3. **Story defines the brand, AI defends it.**
+1. **Story is the signal. AI is the amplifier.**
+2. **Story builds trust. AI builds systems.**
+3. **Story defines the brand. AI defends it.**
 
-His most quoted line of the day summed it up:
+The line that drew the loudest response of the morning:
 
 > "Garbage in, garbage out. Greatness in, scale out."
 
-Agents will scale whatever you give them. If what you give them is generic, you get generic at scale. If you give them a real story, you get reach that no team could produce by hand.
+Agents will scale whatever is handed to them. Hand them something generic and they produce generic at scale. Hand them something true and they produce reach that no human team could ever match by hand.
 
-When the conversation turned to tools, Victor kept the focus on principle.
+Asked which tools founders should adopt, Victor pushed the question back to principle.
 
-> "The tool changes every six months. The principle doesn't. Figure out your story first. Then pick the tool that moves it fastest."
+> "The tool changes every six months. The principle does not. Figure out your story first. Then pick the tool that moves it fastest."
 
-He closed with a reflection exercise and a challenge to everyone in the room. The audience left with one idea: AI is the most powerful distribution tool ever built, but distribution without a story worth distributing is just expensive noise.
+He closed with a short reflection exercise and a direct challenge to the room. Before writing a single prompt, write the sentence a stranger would tell about your business a year from now. The audience left with the line Victor repeated three times from the stage. Distribution without a story worth distributing is just expensive noise.

@@ -29,10 +29,10 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const doc = readDoc<Frontmatter>("blog", params.slug);
-  if (!doc) return { title: "Post not found — MCKI Solutions" };
+  if (!doc) return { title: "Post not found · MCKI Solutions" };
   const d = doc.data;
   return {
-    title: `${d.title} — MCKI Solutions`,
+    title: `${d.title} · MCKI Solutions`,
     description: d.excerpt ?? d.subtitle ?? "",
     openGraph: {
       title: d.title,
@@ -213,7 +213,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
             </div>
             {d.coverAlt && (
               <figcaption className="mt-3 font-mono text-[11px] tracking-widest uppercase text-white/40">
-                On stage — <span className="text-white/60">{d.event}, {formatDate(d.eventDate)}</span>
+                On stage · <span className="text-white/60">{d.event}, {formatDate(d.eventDate)}</span>
               </figcaption>
             )}
           </figure>

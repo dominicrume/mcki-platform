@@ -20,7 +20,7 @@ type Frontmatter = {
 };
 
 export const metadata: Metadata = {
-  title: "Field Notes — MCKI Solutions",
+  title: "Field Notes · MCKI Solutions",
   description: "Dispatches from the MCKI stage: talks on agentic AI, education, and the craft of building both.",
 };
 
