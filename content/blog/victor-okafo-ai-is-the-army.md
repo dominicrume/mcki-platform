@@ -1,18 +1,18 @@
 ---
 title: "Your Story Is the General. AI Is the Army."
-subtitle: "Victor Okafo on the one thing agentic AI can't do for you — and why that's your edge."
-excerpt: "Storyteller and founder of Jali Group, Victor Okafo, brought the Birmingham room to its feet. Then he reframed what agentic AI is actually for."
-author: "Victor Okafo"
+subtitle: "Victor Okafor on the one thing agentic AI can't do for you — and why that's your edge."
+excerpt: "Storyteller and founder of Jali Group, Victor Okafor, brought the Birmingham room to its feet. Then he reframed what agentic AI is actually for."
+author: "Victor Okafor"
 authorRole: "Founder, Jali Group"
 event: "Agentic AI Birmingham"
 eventDate: "2026-06-27"
 publishedAt: "2026-10-25"
 tag: "Field Notes"
 cover: "/images/blog/victor-okafo-stage.jpg"
-coverAlt: "Victor Okafo on stage at MCKI's Agentic AI event in Birmingham, mic in hand, speaking to the audience."
+coverAlt: "Victor Okafor on stage at MCKI's Agentic AI event in Birmingham, mic in hand, speaking to the audience."
 ---
 
-Storyteller and founder of Jali Group, Victor Okafo, brought the room to its feet. Literally. He opened with what he calls "The Robot Test," asking everyone to stand and sit down only when they believed AI could already do the task he named. Writing an email. Summarising a report. Creating a social media caption. Row by row, people sat.
+Storyteller and founder of Jali Group, Victor Okafor, brought the room to its feet. Literally. He opened with what he calls "The Robot Test," asking everyone to stand and sit down only when they believed AI could already do the task he named. Writing an email. Summarising a report. Creating a social media caption. Row by row, people sat.
 
 Then he named the last one: telling the story of the moment that changed your life, and making a room full of strangers lean in and trust you. Almost everyone was still standing.
 
