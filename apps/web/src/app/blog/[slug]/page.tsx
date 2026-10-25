@@ -199,15 +199,16 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
         {d.cover && (
           <figure className="m-0">
-            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02]">
-              <Image
-                src={d.cover}
-                alt={d.coverAlt ?? d.title}
-                fill
-                priority
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover object-[50%_28%] scale-[1.35] origin-[50%_42%]"
-              />
+            <div
+              className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] bg-no-repeat"
+              style={{
+                backgroundImage: `url(${d.cover})`,
+                backgroundSize: "180%",
+                backgroundPosition: "52% 38%",
+              }}
+              role="img"
+              aria-label={d.coverAlt ?? d.title}
+            >
               <div className="absolute inset-0 bg-gradient-to-t from-[#020813]/50 via-transparent to-transparent pointer-events-none" />
             </div>
             {d.coverAlt && (

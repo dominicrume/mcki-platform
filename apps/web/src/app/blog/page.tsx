@@ -59,14 +59,16 @@ export default function BlogIndex() {
             className="group grid md:grid-cols-[1.1fr_1fr] gap-8 md:gap-12 items-center p-6 md:p-10 rounded-3xl bg-white/[0.03] border border-white/10 hover:border-ai/50 transition-all duration-500"
           >
             {featured.data.cover && (
-              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white/[0.02] order-last md:order-first">
-                <Image
-                  src={featured.data.cover}
-                  alt={featured.data.coverAlt ?? featured.data.title}
-                  fill
-                  sizes="(min-width: 768px) 55vw, 100vw"
-                  className="object-cover object-[50%_28%] scale-[1.35] origin-[50%_42%] group-hover:scale-[1.4] transition-transform duration-700"
-                />
+              <div
+                className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-white/[0.02] bg-no-repeat order-last md:order-first"
+                style={{
+                  backgroundImage: `url(${featured.data.cover})`,
+                  backgroundSize: "180%",
+                  backgroundPosition: "52% 38%",
+                }}
+                role="img"
+                aria-label={featured.data.coverAlt ?? featured.data.title}
+              >
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020813]/60 via-transparent to-transparent" />
               </div>
             )}
