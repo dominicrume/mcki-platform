@@ -52,7 +52,7 @@ export default function Home() {
 
           <p className="font-sans text-[18px] md:text-[22px] font-light text-white/70 max-w-[640px] mx-auto leading-relaxed mb-12">
             Two divisions, one rule. If our name is on it, it works.
-            <strong className="text-white font-normal block mt-3">Pick the door that fits what you need.</strong>
+            <strong className="text-white font-normal block mt-3">Pick a door. First call is on us.</strong>
           </p>
           
           <div className="flex justify-center items-center">
@@ -61,33 +61,73 @@ export default function Home() {
         </FadeIn>
       </Section>
 
-      {/* CREDIBILITY STRIP (TRUSTED BY / LOGOS) */}
-      <div className="w-full border-y border-white/20 bg-[#0A1628] shadow-lg overflow-hidden py-10 relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-transparent to-ink z-10 pointer-events-none"></div>
-        <div className="flex w-[200%] animate-marquee items-center opacity-90 font-serif">
-          {/* We duplicate the list to create an infinite scroll effect */}
-          {[1, 2].map((group) => (
-            <div key={group} className="flex justify-around items-center w-1/2 px-4 gap-16 text-2xl md:text-3xl font-bold tracking-[0.15em] text-white uppercase drop-shadow-md">
-              <span className="hover:text-ai transition-colors cursor-default">Oxford</span>
-              <span className="hover:text-ai transition-colors cursor-default">Harvard</span>
-              <span className="hover:text-ai transition-colors cursor-default">LSE</span>
-              <span className="hover:text-ai transition-colors cursor-default">Stanford</span>
-              <span className="hover:text-ai transition-colors cursor-default">MIT</span>
-              <span className="hover:text-ai transition-colors cursor-default">Cambridge</span>
+      {/* CREDIBILITY STRIP */}
+      <div className="w-full border-y border-white/10 bg-[#0A1628] shadow-xl py-12 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6">
+          <p className="text-center font-mono text-[10px] md:text-[11px] font-semibold tracking-[0.3em] uppercase text-educationLight mb-8">
+            The institutions we prepare students for
+          </p>
+
+          <div
+            className="relative overflow-hidden"
+            style={{
+              maskImage:
+                "linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%)",
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%)",
+            }}
+          >
+            <div className="flex w-max animate-marquee items-center font-serif">
+              {[1, 2].map((group) => (
+                <div
+                  key={group}
+                  className="flex items-center gap-10 md:gap-14 px-6 md:px-7 text-2xl md:text-3xl font-bold tracking-[0.14em] uppercase whitespace-nowrap"
+                >
+                  {["Oxford", "Harvard", "LSE", "Stanford", "MIT", "Cambridge"].map((n) => (
+                    <span
+                      key={`${group}-${n}`}
+                      className="text-white/90 hover:text-ai transition-colors duration-300 cursor-default"
+                    >
+                      {n}
+                    </span>
+                  ))}
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
 
-      {/* LUXURY PROMISE STRIP (Customer Trust) */}
+      {/* PROMISE STRIP — AI pillar guarantee */}
       <section className="relative z-10 border-y border-white/15 bg-[#0F2240] shadow-xl backdrop-blur-xl">
-        <div className="max-w-[1200px] mx-auto px-6 py-16">
+        <div className="max-w-[1200px] mx-auto px-6 py-14 md:py-20">
           <FadeIn delay={0.2}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-6 divide-y md:divide-y-0 md:divide-x divide-white/15">
-              {promise.map((p) => (
-                <div key={p.label} className="text-center group pt-8 md:pt-0 first:pt-0 cursor-default">
-                  <div className="font-display font-extrabold text-6xl text-white mb-2 transition-all duration-500 group-hover:scale-110 group-hover:text-ai drop-shadow-[0_2px_10px_rgba(255,255,255,0.2)]">{p.value}</div>
-                  <div className="font-sans text-sm font-extrabold tracking-[0.25em] uppercase text-white/90 group-hover:text-white transition-colors">{p.label}</div>
+            <p className="text-center font-mono text-[10px] md:text-[11px] font-semibold tracking-[0.3em] uppercase text-ai mb-3">
+              The AI promise
+            </p>
+            <h2 className="text-center font-display text-2xl md:text-3xl text-white/90 font-medium mb-12 max-w-2xl mx-auto leading-snug text-balance">
+              Every agent we ship is held to the same three numbers.
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-5">
+              {(promise as readonly { label: string; value: string; note?: string }[]).map((p) => (
+                <div
+                  key={p.label}
+                  className="group relative text-center p-8 md:p-10 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-ai/50 hover:bg-white/[0.05] transition-all duration-500 cursor-default overflow-hidden"
+                >
+                  <div className="absolute -top-16 -right-16 w-56 h-56 bg-ai/10 rounded-full blur-[60px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" aria-hidden />
+                  <div className="relative z-10">
+                    <div className="font-display font-extrabold text-6xl md:text-7xl text-white mb-3 transition-all duration-500 group-hover:text-ai group-hover:scale-105 drop-shadow-[0_2px_10px_rgba(255,255,255,0.15)]">
+                      {p.value}
+                    </div>
+                    <div className="font-sans text-xs font-bold tracking-[0.25em] uppercase text-white/90 mb-3">
+                      {p.label}
+                    </div>
+                    {p.note && (
+                      <p className="text-sm text-white/60 leading-relaxed max-w-[20ch] mx-auto">
+                        {p.note}
+                      </p>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>

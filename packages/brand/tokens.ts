@@ -21,9 +21,9 @@ export const colors = {
 } as const;
 
 export const promise = [
-  { label: "Cheaper", value: "5x" },
-  { label: "Faster",  value: "7x" },
-  { label: "Clearer", value: "10x" },
+  { label: "Cheaper", value: "5x", note: "than a Big-4 consultancy build" },
+  { label: "Faster",  value: "7x", note: "shipped in weeks, not quarters" },
+  { label: "Clearer", value: "10x", note: "one dashboard, one plain-English owner" },
 ] as const;
 
 export const type = {
