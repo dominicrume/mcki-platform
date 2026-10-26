@@ -1,12 +1,10 @@
-import { SiteNav as Nav } from "@/components/SiteNav";
 /**
  * Parent brand homepage — mckisolutions.com
- * A unified single-page architecture displaying all divisions with a world-class elite aesthetic.
  */
 import Image from "next/image";
 import { readDoc, listDocs } from "@mcki/content";
 import { brand, promise } from "@mcki/brand/tokens";
-import { Section, Card, Button, FadeIn, EmailCapture } from "@mcki/ui";
+import { Section, Card, Nav, Button, FadeIn, EmailCapture } from "@mcki/ui";
 
 export default function Home() {
   const doc = readDoc("web", "home");
