@@ -9,7 +9,6 @@ import { Section, Card, Nav, Button, FadeIn, EmailCapture } from "@mcki/ui";
 export default function Home() {
   const doc = readDoc("web", "home");
   const d = (doc?.data ?? {}) as any;
-  const testimonials = d.testimonials ?? [];
 
   // Education Content
   const eduDoc = readDoc("education", "index");
@@ -20,6 +19,9 @@ export default function Home() {
   const aiDoc = readDoc("ai", "index");
   const ai = (aiDoc?.data ?? {}) as any;
   const aiBuilds = ai.builds ?? [];
+
+  // Real proof case studies — content/proof/*.md
+  const proof = listDocs<any>("proof");
 
   // Live Event Content
   const events = listDocs<any>("live/events");
@@ -268,36 +270,50 @@ export default function Home() {
         </FadeIn>
       </Section>
 
-      {/* CLIENT SUCCESS (TESTIMONIALS) */}
-      <Section className="py-24 md:py-32 relative border-t border-white/15 bg-[#061021] shadow-2xl" id="success">
-        <FadeIn delay={0.2}>
-          <div className="text-center mb-16">
-             <p className="font-sans text-xs font-bold tracking-[0.25em] uppercase text-ai mb-4">Verifiable Proof of Impact</p>
-             <h2 className="font-display font-bold text-[clamp(36px,4.5vw,56px)] text-white leading-tight">Uncompromising Results.</h2>
-             <p className="font-sans text-lg text-white/85 max-w-2xl mx-auto mt-4">Our credibility is built on hard metrics and admissions into the world&apos;s most selective institutions and enterprises.</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((t: any, i: number) => (
-              <div key={i} className="p-8 md:p-10 rounded-3xl bg-[#0D1E36] border-2 border-white/20 hover:border-white/50 transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col justify-between group relative overflow-hidden hover:-translate-y-2">
-                {t.metric && (
-                  <div className="mb-6 inline-flex items-center self-start px-4 py-1.5 rounded-full bg-white/10 border border-white/25 font-sans text-xs font-bold tracking-wider uppercase text-ai shadow-sm">
-                    ★ {t.metric}
-                  </div>
-                )}
-                <p className="font-serif text-lg md:text-xl text-white/95 italic leading-relaxed mb-8 flex-grow">&ldquo;{t.quote}&rdquo;</p>
-                <div className="pt-6 border-t border-white/15 flex items-center justify-between">
-                  <div>
-                    <p className="font-sans font-bold text-white text-base mb-1">{t.name}</p>
-                    <p className={`font-sans text-xs font-bold tracking-wider uppercase ${t.division === 'ai' ? 'text-ai' : 'text-blue-300'}`}>{t.role}</p>
-                  </div>
-                  <span className={`w-3 h-3 rounded-full shrink-0 ${t.division === 'ai' ? 'bg-ai shadow-[0_0_10px_#FFD700]' : 'bg-blue-400 shadow-[0_0_10px_#60A5FA]'}`}></span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </FadeIn>
-      </Section>
+      {/* PROOF — real case studies from content/proof/*.md */}
+      {proof.length > 0 && (
+        <Section className="py-24 md:py-32 relative border-t border-white/15 bg-[#061021] shadow-2xl" id="success">
+          <FadeIn delay={0.2}>
+            <div className="text-center mb-14">
+              <p className="font-sans text-xs font-bold tracking-[0.25em] uppercase text-ai mb-4">The proof</p>
+              <h2 className="font-display font-bold text-[clamp(36px,4.5vw,56px)] text-white leading-tight">
+                Agents already in production.
+              </h2>
+              <p className="font-sans text-lg text-white/70 max-w-2xl mx-auto mt-4">
+                Three live builds, three sectors. Read the case study to see what we built and what it changed.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {proof.map((p) => {
+                const pd = p.data as any;
+                return (
+                  <a
+                    key={p.slug}
+                    href={`/ai/proof/${p.slug}`}
+                    className="group flex flex-col p-7 md:p-8 rounded-3xl bg-[#0D1E36] border-2 border-white/20 hover:border-ai/50 transition-all duration-500 shadow-[0_20px_50px_rgba(0,0,0,0.4)] hover:-translate-y-1"
+                  >
+                    {pd.sector && (
+                      <p className="font-mono text-[10px] tracking-widest uppercase text-educationLight mb-4">
+                        {pd.sector}
+                      </p>
+                    )}
+                    <h3 className="font-display text-2xl font-semibold text-white mb-3 group-hover:text-ai transition-colors">
+                      {pd.client}
+                    </h3>
+                    <p className="text-[15px] text-white/70 leading-relaxed mb-6 flex-grow">
+                      {pd.build}
+                    </p>
+                    <span className="inline-flex items-center gap-2 text-ai font-semibold text-sm group-hover:gap-3 transition-all">
+                      Read the case study <span aria-hidden>→</span>
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
+          </FadeIn>
+        </Section>
+      )}
 
       {/* LIVE EVENT BANNER */}
       {nextEvent && (

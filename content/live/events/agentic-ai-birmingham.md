@@ -43,5 +43,5 @@ modules:
 
 # Agentic AI Birmingham
 
-The flagship MCKI live workshop. Here, we demonstrate how practical software automation replaces manual admin and saves hours every week.
+Our first open workshop. Three agents on stage, one built live for a business from the room. The hours we saved them, we can save you.
 

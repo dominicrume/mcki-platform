@@ -42,10 +42,10 @@ modules:
       community: { label: "Join the MCKI WhatsApp Community", link: "https://chat.whatsapp.com/[YOUR_INVITE_CODE]" }
 ---
 
-# Practical AI Workshop — October 2026
+# Agentic AI Mastermind, October 2026
 
-Following our recent training sessions, we will host our next live engineering workshop on **October 24th, 2026**.
+One afternoon. One real business from the room. We build the agent they came for, live on stage.
 
-This session focuses entirely on building software tools that automate repetitive daily admin, reduce overhead, and streamline your operations.
+You watch the whole thing. The brief, the build, the hand-off. Then you take home exactly what you need to do the same for your own business.
 
-Rather than a lecture, this is a hands-on technical workshop where we build real systems live on stage. You will see exactly how we design, test, and deploy practical software tools that save teams hours of work every week.
+No slides. No theory. If it does not ship by 4pm, we have failed.

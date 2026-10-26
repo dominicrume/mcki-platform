@@ -1,19 +1,18 @@
 ---
 hero:
-  title: "Practical Artificial Intelligence & Engineering."
-  subtitle: "We teach the exact technical methods our team uses in client engagements. No buzzwords or surface-level theory—just structured engineering and clear system architecture."
+  title: "Learn to build the agents we build."
+  subtitle: "The exact methods our team uses on client builds. No fluff, no fillers. You leave able to ship."
 partner:
-  title: "Vorem.co — Our Official Education Partner"
-  subtitle: "We have partnered with Vorem.co to host our core curriculum. Start with the foundational course below at no cost."
+  title: "Vorem.co is our teaching home"
+  subtitle: "Start on the foundation course below. It is free. If you want more, join the waitlist for the next live cohort."
 courses:
-  - title: "The Foundation Engineering Course"
-    tagline: "A step-by-step introduction to modern software automation, prompt structuring, and practical system design."
+  - title: "Foundations"
+    tagline: "Modern automation, prompting, and system design, step by step. For beginners and teams getting their footing."
     kicker: "Free on Vorem.co"
     accentClass: "bg-ai"
-    cta: "Start Learning for Free"
+    cta: "Start for free"
     link: "https://vorem.co"
 waitlist:
-  title: "Next Advanced Cohort"
-  subtitle: "Enter your email address below to receive notification when our next live training cohort opens for enrolment."
+  title: "Next live cohort"
+  subtitle: "Drop your email. We tell you first when the next live cohort opens."
 ---
-
