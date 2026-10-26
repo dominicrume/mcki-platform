@@ -21,6 +21,9 @@ type Frontmatter = {
   tag?: string;
   cover?: string;
   coverAlt?: string;
+  ctaLabel?: string;
+  ctaUrl?: string;
+  ctaNote?: string;
 };
 
 export function generateStaticParams() {
@@ -50,19 +53,31 @@ function formatDate(iso?: string): string {
   return d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
 }
 
-/** Inline formatting: **bold**, *italic*. */
+/** Inline formatting: **bold**, *italic*, [text](url). */
 function renderInline(text: string, key: string): React.ReactNode {
   const parts: React.ReactNode[] = [];
-  const regex = /\*\*(.+?)\*\*|\*(.+?)\*/g;
+  const regex = /\[([^\]]+)\]\(([^)]+)\)|\*\*(.+?)\*\*|\*(.+?)\*/g;
   let last = 0;
   let m: RegExpExecArray | null;
   let i = 0;
   while ((m = regex.exec(text)) !== null) {
     if (m.index > last) parts.push(text.slice(last, m.index));
-    if (m[1] !== undefined) {
-      parts.push(<strong key={`${key}-b-${i}`} className="font-semibold text-white">{m[1]}</strong>);
-    } else if (m[2] !== undefined) {
-      parts.push(<em key={`${key}-i-${i}`} className="italic text-ai">{m[2]}</em>);
+    if (m[1] !== undefined && m[2] !== undefined) {
+      const external = /^https?:\/\//.test(m[2]);
+      parts.push(
+        <a
+          key={`${key}-a-${i}`}
+          href={m[2]}
+          className="text-ai underline underline-offset-4 decoration-ai/40 hover:decoration-ai transition-colors"
+          {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
+          {m[1]}
+        </a>
+      );
+    } else if (m[3] !== undefined) {
+      parts.push(<strong key={`${key}-b-${i}`} className="font-semibold text-white">{m[3]}</strong>);
+    } else if (m[4] !== undefined) {
+      parts.push(<em key={`${key}-i-${i}`} className="italic text-ai">{m[4]}</em>);
     }
     last = regex.lastIndex;
     i++;
@@ -132,8 +147,29 @@ function renderMarkdown(src: string): React.ReactNode[] {
       continue;
     }
 
+    if (/^-\s/.test(line)) {
+      const items: string[] = [];
+      while (i < lines.length && /^-\s/.test(lines[i])) {
+        items.push(lines[i].slice(2));
+        i++;
+      }
+      blocks.push(
+        <ul key={key++} className="my-8 grid gap-3">
+          {items.map((item, idx) => (
+            <li key={idx} className="grid grid-cols-[auto_1fr] gap-4 items-baseline">
+              <span className="w-1.5 h-1.5 rounded-full bg-ai mt-2.5" aria-hidden />
+              <p className="text-lg leading-relaxed text-white/90 m-0">
+                {renderInline(item, `uli-${key}-${idx}`)}
+              </p>
+            </li>
+          ))}
+        </ul>
+      );
+      continue;
+    }
+
     const paraLines: string[] = [];
-    while (i < lines.length && lines[i].trim() !== "" && !lines[i].startsWith("## ") && !lines[i].startsWith("> ") && !/^\d+\.\s/.test(lines[i])) {
+    while (i < lines.length && lines[i].trim() !== "" && !lines[i].startsWith("## ") && !lines[i].startsWith("> ") && !/^\d+\.\s/.test(lines[i]) && !/^-\s/.test(lines[i])) {
       paraLines.push(lines[i]);
       i++;
     }
@@ -166,7 +202,12 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         </Link>
       </nav>
 
-      <header className="max-w-6xl mx-auto px-6 pt-10 pb-12 md:pt-16 md:pb-20 grid md:grid-cols-[1fr_1.1fr] gap-10 md:gap-16 items-start">
+      <header
+        className={
+          "max-w-6xl mx-auto px-6 pt-10 pb-12 md:pt-16 md:pb-20 grid gap-10 md:gap-16 items-start " +
+          (d.cover ? "md:grid-cols-[1fr_1.1fr]" : "md:grid-cols-1 md:max-w-4xl")
+        }
+      >
         <div>
           <p className="font-mono text-[11px] tracking-[0.2em] uppercase text-ai mb-6 flex items-center gap-3">
             <span className="w-6 h-px bg-ai" aria-hidden /> {d.tag ?? "Field Notes"}
@@ -182,7 +223,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
           <dl className="grid grid-cols-2 gap-x-6 gap-y-4 pt-6 border-t border-white/10 max-w-md">
             {d.author && (
               <div>
-                <dt className="font-mono text-[10px] tracking-widest uppercase text-white/40 mb-1">Speaker</dt>
+                <dt className="font-mono text-[10px] tracking-widest uppercase text-white/40 mb-1">By</dt>
                 <dd className="font-medium text-white">{d.author}</dd>
                 {d.authorRole && <dd className="text-sm text-white/60 mt-0.5">{d.authorRole}</dd>}
               </div>
@@ -211,9 +252,12 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
             >
               <div className="absolute inset-0 bg-gradient-to-t from-[#020813]/50 via-transparent to-transparent pointer-events-none" />
             </div>
-            {d.coverAlt && (
+            {d.event && (
               <figcaption className="mt-3 font-mono text-[11px] tracking-widest uppercase text-white/40">
-                On stage · <span className="text-white/60">{d.event}, {formatDate(d.eventDate)}</span>
+                <span className="text-white/60">
+                  {d.event}
+                  {d.eventDate && `, ${formatDate(d.eventDate)}`}
+                </span>
               </figcaption>
             )}
           </figure>
@@ -222,6 +266,30 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
       <article className="max-w-2xl mx-auto px-6 pb-24">
         {renderMarkdown(doc.body)}
+
+        {d.ctaUrl && d.ctaLabel && (
+          <aside className="mt-16 p-8 md:p-10 rounded-3xl border border-ai/40 bg-gradient-to-br from-ai/10 via-ai/5 to-transparent relative overflow-hidden">
+            <div className="absolute -top-20 -right-20 w-80 h-80 bg-ai/20 rounded-full blur-[80px] pointer-events-none" aria-hidden />
+            <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div>
+                <p className="font-mono text-[10px] tracking-[0.2em] uppercase text-ai mb-2">
+                  Next step
+                </p>
+                <p className="font-display text-xl md:text-2xl font-semibold text-white leading-snug text-balance max-w-md">
+                  {d.ctaNote ?? d.ctaLabel}
+                </p>
+              </div>
+              <a
+                href={d.ctaUrl}
+                target={/^https?:\/\//.test(d.ctaUrl) ? "_blank" : undefined}
+                rel={/^https?:\/\//.test(d.ctaUrl) ? "noopener noreferrer" : undefined}
+                className="inline-flex items-center justify-center gap-3 font-semibold text-ink bg-ai hover:bg-white transition-colors px-7 py-4 rounded-full shadow-[0_0_30px_rgba(255,215,0,0.3)] whitespace-nowrap"
+              >
+                {d.ctaLabel} <span aria-hidden>→</span>
+              </a>
+            </div>
+          </aside>
+        )}
 
         <div className="mt-20 pt-10 border-t border-white/10 flex flex-col sm:flex-row gap-6 justify-between items-start sm:items-center">
           <div>

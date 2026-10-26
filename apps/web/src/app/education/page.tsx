@@ -20,7 +20,8 @@ export default function EducationHome() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-education/20 rounded-full blur-[120px] opacity-40 pointer-events-none" />
         
         <div className="relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto">
-          <p className="font-mono text-[12px] tracking-widest uppercase text-education drop-shadow-[0_0_8px_rgba(30,91,143,0.6)] mb-6">
+          <p className="inline-flex items-center gap-2.5 font-mono text-[11px] tracking-[0.2em] uppercase text-educationLight mb-6 px-4 py-1.5 rounded-full border border-educationLight/30 bg-educationLight/5">
+            <span className="w-1.5 h-1.5 rounded-full bg-educationLight animate-pulse" aria-hidden />
             MCKI · Academic Advisory
           </p>
           <h1 className="font-extrabold text-[clamp(40px,6vw,72px)] leading-[1.1] tracking-tight mb-8 bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-white/50">
@@ -29,6 +30,21 @@ export default function EducationHome() {
           <p className="text-[18px] md:text-[22px] text-white/70 max-w-2xl leading-relaxed mb-12 font-medium">
             Applying to university is one of the most important decisions a student will make. Our practice is dedicated to providing calm, honest, and experienced advice.
           </p>
+
+          {/* Trust signals bar */}
+          <div className="w-full max-w-3xl grid grid-cols-2 md:grid-cols-4 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/10">
+            {[
+              { k: "UCAS", v: "Full support" },
+              { k: "Oxford · Cambridge", v: "Interview prep" },
+              { k: "Russell Group", v: "Entrance exams" },
+              { k: "International", v: "US · EU · beyond" },
+            ].map((t) => (
+              <div key={t.k} className="bg-[#020813] p-4 text-center">
+                <p className="font-mono text-[9px] tracking-widest uppercase text-educationLight mb-1">{t.k}</p>
+                <p className="text-sm text-white/80 font-medium">{t.v}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </Section>
 
@@ -44,10 +60,10 @@ export default function EducationHome() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Pillar 1 */}
-            <div className="group relative p-8 rounded-3xl bg-[#0a1428]/50 border border-white/10 hover:border-education/50 hover:bg-[#0a1428]/80 transition-all duration-500 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-education/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="group relative p-8 rounded-3xl bg-[#0a1428]/50 border border-white/10 hover:border-educationLight/50 hover:bg-[#0a1428]/80 transition-all duration-500 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-educationLight/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-xl bg-education/20 flex items-center justify-center mb-6 border border-education/30 text-education group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(30,91,143,0.4)] transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-education/20 flex items-center justify-center mb-6 border border-educationLight/40 text-educationLight group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(30,91,143,0.4)] transition-all duration-300">
                   <User className="w-6 h-6" />
                 </div>
                 <h3 className="font-bold text-xl text-white mb-3">Personal Attention</h3>
@@ -56,10 +72,10 @@ export default function EducationHome() {
             </div>
 
             {/* Pillar 2 */}
-            <div className="group relative p-8 rounded-3xl bg-[#0a1428]/50 border border-white/10 hover:border-education/50 hover:bg-[#0a1428]/80 transition-all duration-500 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-education/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="group relative p-8 rounded-3xl bg-[#0a1428]/50 border border-white/10 hover:border-educationLight/50 hover:bg-[#0a1428]/80 transition-all duration-500 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-educationLight/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-xl bg-education/20 flex items-center justify-center mb-6 border border-education/30 text-education group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(30,91,143,0.4)] transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-education/20 flex items-center justify-center mb-6 border border-educationLight/40 text-educationLight group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(30,91,143,0.4)] transition-all duration-300">
                   <BookOpen className="w-6 h-6" />
                 </div>
                 <h3 className="font-bold text-xl text-white mb-3">Thorough Preparation</h3>
@@ -68,10 +84,10 @@ export default function EducationHome() {
             </div>
 
             {/* Pillar 3 */}
-            <div className="group relative p-8 rounded-3xl bg-[#0a1428]/50 border border-white/10 hover:border-education/50 hover:bg-[#0a1428]/80 transition-all duration-500 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-education/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="group relative p-8 rounded-3xl bg-[#0a1428]/50 border border-white/10 hover:border-educationLight/50 hover:bg-[#0a1428]/80 transition-all duration-500 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-educationLight/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-xl bg-education/20 flex items-center justify-center mb-6 border border-education/30 text-education group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(30,91,143,0.4)] transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-education/20 flex items-center justify-center mb-6 border border-educationLight/40 text-educationLight group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(30,91,143,0.4)] transition-all duration-300">
                   <Wallet className="w-6 h-6" />
                 </div>
                 <h3 className="font-bold text-xl text-white mb-3">Financial Guidance</h3>
@@ -80,10 +96,10 @@ export default function EducationHome() {
             </div>
 
             {/* Pillar 4 */}
-            <div className="group relative p-8 rounded-3xl bg-[#0a1428]/50 border border-white/10 hover:border-education/50 hover:bg-[#0a1428]/80 transition-all duration-500 overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-education/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="group relative p-8 rounded-3xl bg-[#0a1428]/50 border border-white/10 hover:border-educationLight/50 hover:bg-[#0a1428]/80 transition-all duration-500 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-educationLight/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-xl bg-education/20 flex items-center justify-center mb-6 border border-education/30 text-education group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(30,91,143,0.4)] transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-education/20 flex items-center justify-center mb-6 border border-educationLight/40 text-educationLight group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(30,91,143,0.4)] transition-all duration-300">
                   <ShieldCheck className="w-6 h-6" />
                 </div>
                 <h3 className="font-bold text-xl text-white mb-3">Honest Advice</h3>
@@ -97,13 +113,13 @@ export default function EducationHome() {
       {/* 3. The Founder's Quote */}
       <Section className="py-32 relative">
         <div className="max-w-4xl mx-auto text-center relative">
-          <Quote className="w-16 h-16 text-education/30 mx-auto mb-8 rotate-180" />
+          <Quote className="w-16 h-16 text-educationLight/40 mx-auto mb-8 rotate-180" />
           <h2 className="font-serif text-[clamp(24px,3.5vw,36px)] leading-relaxed text-white/90 italic mb-10">
-            "I watched too many people walk away from an opportunity that was genuinely within their reach. They didn't need more talent or more money — they needed someone to sit with them, explain the options, and say: 'This is possible. Here's how.' That is exactly what we do. Every single day."
+            "I watched too many people walk away from an opportunity that was genuinely within their reach. They didn't need more talent or more money. They needed someone to sit with them, explain the options, and say: 'This is possible. Here's how.' That is exactly what we do. Every single day."
           </h2>
           <div className="flex flex-col items-center">
             <p className="font-bold text-xl text-white tracking-wide">Shofiqul Haque</p>
-            <p className="font-mono text-xs uppercase tracking-widest text-education mt-2">Founder, MCKI Solutions</p>
+            <p className="font-mono text-xs uppercase tracking-widest text-educationLight mt-2">Founder, MCKI Solutions</p>
           </div>
         </div>
       </Section>

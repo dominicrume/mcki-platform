@@ -6,6 +6,7 @@ const config: Config = {
       colors: {
         ink: "#0A192F",
         education: "#002D62",
+        educationLight: "#7FB3FF",
         ai: "#FFD700",
         lime: "#6B8E00",
         amber: "#F59E0B",
