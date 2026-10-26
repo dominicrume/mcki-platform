@@ -1,3 +1,4 @@
+import { SiteNav as Nav } from "@/components/SiteNav";
 /**
  * Parent brand homepage — mckisolutions.com
  * A unified single-page architecture displaying all divisions with a world-class elite aesthetic.
@@ -5,7 +6,7 @@
 import Image from "next/image";
 import { readDoc, listDocs } from "@mcki/content";
 import { brand, promise } from "@mcki/brand/tokens";
-import { Section, Card, Nav, Button, FadeIn, EmailCapture } from "@mcki/ui";
+import { Section, Card, Button, FadeIn, EmailCapture } from "@mcki/ui";
 
 export default function Home() {
   const doc = readDoc("web", "home");
@@ -42,23 +43,22 @@ export default function Home() {
           <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md shadow-lg">
             <span className="w-2 h-2 rounded-full bg-ai animate-pulse"></span>
             <span className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-white/80">
-              {brand.name} · The Standard of Excellence
+              {brand.name} · Birmingham, UK
             </span>
           </div>
           
-          {/* The "Norman Newtimes Roman" elite serif typography for the hook */}
           <h1 className="font-display font-medium text-[clamp(48px,8vw,96px)] leading-[1.05] tracking-tight mb-8 text-white max-w-[1000px] mx-auto drop-shadow-2xl">
-            Education Excellence.<br/>
-            <span className="italic text-white/50 font-light">meets</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-ai via-[#FFF0B3] to-ai">Agentic AI.</span>
+            We get students in.<br/>
+            <span className="italic text-white/50 font-light">and</span> <span className="text-transparent bg-clip-text bg-gradient-to-r from-ai via-[#FFF0B3] to-ai">we build AI that works.</span>
           </h1>
-          
-          <p className="font-sans text-[18px] md:text-[22px] font-light text-white/60 max-w-[700px] mx-auto leading-relaxed mb-12">
-            We secure admissions into the world's most prestigious universities, and engineer the agentic AI systems that run modern elite enterprises. 
-            <strong className="text-white font-normal block mt-2">Two divisions. One world-class standard.</strong>
+
+          <p className="font-sans text-[18px] md:text-[22px] font-light text-white/70 max-w-[640px] mx-auto leading-relaxed mb-12">
+            Two divisions, one rule. If our name is on it, it works.
+            <strong className="text-white font-normal block mt-3">Pick the door that fits what you need.</strong>
           </p>
           
           <div className="flex justify-center items-center">
-            <EmailCapture source="hero-homepage" ctaText="Request a Private Consultation" accentClass="bg-white text-ink" />
+            <EmailCapture source="hero-homepage" ctaText="Book a call" accentClass="bg-white text-ink" />
           </div>
         </FadeIn>
       </Section>
@@ -105,16 +105,16 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start relative z-10">
             <div className="lg:w-1/3 sticky top-32">
               <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-blue-300 mb-4">Division 01</p>
-              <h2 className="font-display font-medium text-[clamp(40px,5vw,64px)] text-white mb-6 leading-tight">The Education Consultancy.</h2>
+              <h2 className="font-display font-medium text-[clamp(40px,5vw,64px)] text-white mb-6 leading-tight">The Education Side.</h2>
               <p className="font-sans text-lg text-white/85 leading-relaxed mb-8">
-                {edu.hero_sub} Our legacy division is built on an uncompromising standard of academic placement and strategic consulting.
+                We've been doing this a long time. We sit down with students and their parents, we tell them where they really stand, and we build the application that gets them in. Oxbridge, Russell Group, US and international. Honest advice. No shortcuts.
               </p>
               
               <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-8 border border-white/10 shadow-2xl">
                 <Image src="/images/education_campus.jpg" alt="Prestigious University Campus" fill className="object-cover hover:scale-105 transition-transform duration-1000 grayscale hover:grayscale-0 opacity-80" />
               </div>
 
-              <Button href="/education" accent="bg-education" className="shadow-[0_0_30px_rgba(0,45,98,0.4)]">View Full Consultancy →</Button>
+              <Button href="/education" accent="bg-education" className="shadow-[0_0_30px_rgba(0,45,98,0.4)]">See how we work →</Button>
             </div>
             
             <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
@@ -136,16 +136,16 @@ export default function Home() {
           <div className="flex flex-col lg:flex-row-reverse gap-16 lg:gap-24 items-start relative z-10">
             <div className="lg:w-1/3 sticky top-32">
               <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-ai mb-4">Division 02</p>
-              <h2 className="font-display font-medium text-[clamp(40px,5vw,64px)] text-white mb-6 leading-tight">The AI & Agents Studio.</h2>
+              <h2 className="font-display font-medium text-[clamp(40px,5vw,64px)] text-white mb-6 leading-tight">The AI Side.</h2>
               <p className="font-sans text-lg text-white/85 leading-relaxed mb-8">
-                {ai.hero_sub} We engineer bespoke, agentic AI systems that execute complex workflows and scale elite operations infinitely.
+                We build the AI agents that do the work your team can't get to. Inbox triage, sales qualification, research, operations. Shipped in weeks, not quarters. Priced in outcomes, not hours.
               </p>
               
               <div className="relative w-full aspect-square rounded-2xl overflow-hidden mb-8 border border-white/10 shadow-2xl">
                 <Image src="/images/ai_nodes.jpg" alt="Abstract Agentic AI Network" fill className="object-cover hover:scale-105 transition-transform duration-1000 grayscale hover:grayscale-0 opacity-80" />
               </div>
 
-              <Button href="/ai" accent="bg-ai" className="shadow-[0_0_30px_rgba(255,215,0,0.3)]">Enter AI Division →</Button>
+              <Button href="/ai" accent="bg-ai" className="shadow-[0_0_30px_rgba(255,215,0,0.3)]">See what we build →</Button>
             </div>
             
             <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
@@ -170,7 +170,7 @@ export default function Home() {
             </div>
             <div className="lg:w-1/2">
               <p className="font-sans text-[11px] font-bold tracking-[0.2em] uppercase text-blue-300 mb-4">The Firm</p>
-              <h2 className="font-display font-medium text-[clamp(40px,5vw,56px)] text-white mb-8 leading-tight">{d.philosophy?.title || "The Standard of Excellence"}</h2>
+              <h2 className="font-display font-medium text-[clamp(40px,5vw,56px)] text-white mb-8 leading-tight">{d.philosophy?.title || "How we work."}</h2>
               <p className="font-sans text-xl text-white/85 leading-relaxed mb-10">
                 {d.philosophy?.body}
               </p>
