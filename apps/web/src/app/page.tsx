@@ -58,6 +58,29 @@ export default function Home() {
           <div className="flex justify-center items-center">
             <EmailCapture source="hero-homepage" ctaText="Book a call" accentClass="bg-white text-ink" />
           </div>
+
+          {/* Two direct money paths, no clicks wasted */}
+          <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-3 text-sm">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdNFxP-u1iTBusHyp87BO9hoqeupNQkunyXD-ky1Jn0aJe41A/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-2 text-white/70 hover:text-ai transition-colors"
+            >
+              <span className="font-mono text-[10px] tracking-widest uppercase text-educationLight group-hover:text-ai transition-colors">Students</span>
+              <span className="underline decoration-white/20 group-hover:decoration-ai underline-offset-4">Reserve an AI Workshop seat</span>
+              <span aria-hidden>→</span>
+            </a>
+            <span className="hidden sm:inline text-white/20" aria-hidden>|</span>
+            <a
+              href="mailto:info@mckisolutions.com?subject=AI%20project%20enquiry&body=Hi%20MCKI%2C%0D%0A%0D%0ATell%20us%20about%20your%20business%20and%20what%20you%27d%20like%20an%20agent%20to%20do%3A%0D%0A%0D%0A"
+              className="group inline-flex items-center gap-2 text-white/70 hover:text-ai transition-colors"
+            >
+              <span className="font-mono text-[10px] tracking-widest uppercase text-ai">Businesses</span>
+              <span className="underline decoration-white/20 group-hover:decoration-ai underline-offset-4">Start an AI project</span>
+              <span aria-hidden>→</span>
+            </a>
+          </div>
         </FadeIn>
       </Section>
 
@@ -152,7 +175,19 @@ export default function Home() {
                 <Image src="/images/education_campus.jpg" alt="Prestigious University Campus" fill className="object-cover hover:scale-105 transition-transform duration-1000 grayscale hover:grayscale-0 opacity-80" />
               </div>
 
-              <Button href="/education" accent="bg-education" className="shadow-[0_0_30px_rgba(0,45,98,0.4)]">See how we work →</Button>
+              <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+                <Button
+                  href="mailto:info@mckisolutions.com?subject=University%20admissions%20enquiry&body=Hi%20MCKI%2C%0D%0A%0D%0APlease%20share%20a%20few%20lines%20about%20the%20student%20and%20what%20they%27re%20applying%20for%3A%0D%0A%0D%0A"
+                  external
+                  accent="bg-educationLight"
+                  className="shadow-[0_0_30px_rgba(127,179,255,0.3)] text-ink font-bold"
+                >
+                  Book an admissions call →
+                </Button>
+                <a href="/education" className="text-sm text-white/60 hover:text-white underline underline-offset-4 decoration-white/20 hover:decoration-white transition-colors">
+                  Or see how we work
+                </a>
+              </div>
             </div>
             
             <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
@@ -183,7 +218,19 @@ export default function Home() {
                 <Image src="/images/ai_nodes.jpg" alt="Abstract Agentic AI Network" fill className="object-cover hover:scale-105 transition-transform duration-1000 grayscale hover:grayscale-0 opacity-80" />
               </div>
 
-              <Button href="/ai" accent="bg-ai" className="shadow-[0_0_30px_rgba(255,215,0,0.3)]">See what we build →</Button>
+              <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
+                <Button
+                  href="mailto:info@mckisolutions.com?subject=AI%20project%20enquiry&body=Hi%20MCKI%2C%0D%0A%0D%0ATell%20us%20about%20your%20business%20and%20what%20you%27d%20like%20an%20agent%20to%20do%3A%0D%0A%0D%0A"
+                  external
+                  accent="bg-ai"
+                  className="shadow-[0_0_30px_rgba(255,215,0,0.3)]"
+                >
+                  Start a project →
+                </Button>
+                <a href="/ai" className="text-sm text-white/60 hover:text-white underline underline-offset-4 decoration-white/20 hover:decoration-white transition-colors">
+                  Or see what we build
+                </a>
+              </div>
             </div>
             
             <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
